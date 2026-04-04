@@ -141,4 +141,4 @@ if (backProfilesBtn) {
         profileDropdown.classList.add('hidden');
         showProfiles();
     });
-}
+}     

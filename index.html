@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metadados da página e link para o arquivo de estilo -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Página de login inicial -->
+    <section id="login-page">
+        <h1>Bem-vindo ao Streamix!</h1>
+        <form id="login-form">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="seu@email.com" required>
+            <label for="password">Senha</label>
+            <input id="password" name="password" type="password" placeholder="senha" required>
+            <button id="login-submit" type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <!-- Conteúdo principal da página e botão de modo -->
+    <main>
+        <div class="theme-switcher">
+            <button id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+        </div>
+         <div class="brand">Streamix</div>
+        <h1>Quem está assistindo?</h1>
+        <h2>Selecione um perfil para continuar:</h2>
+        <section aria-label="Perfis disponíveis">
+            <!-- Lista de perfis de usuários disponíveis para seleção -->
+            <nav>
+                <ul class="profiles-wrapper">
+                    <li>
+                        <ol class="profiles">
+                            <li class="profile">
+                                <a href="#">
+                                    <figure>
+                                        <img src="assets/ahriLOL.png" alt=" Imagem de uma mulher com cabelo branco e usando um capuz">
+                                        <figcaption>Ahri</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <figure>
+                                        <img src="assets/Dex.jpg" alt="imagem de um homem com cabelo castanho e usando uma camisa social">
+                                        <figcaption>Dex</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <figure>
+                                        <img src="assets/LuxLOL.png" alt="imagem de uma mulher com cabelo loiro e usando um vestido azul">
+                                        <figcaption>Lux</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <figure>
+                                        <img src="assets/thresh.png" alt="imagem de um homem com cabelo verde e usando uma capa preta">
+                                        <figcaption>Thresh</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                            <li class="profile profile-add">
+                                <a href="#">
+                                    <figure>
+                                        <div class="add-circle">+</div>
+                                        <figcaption>Adicionar</figcaption>
+                                    </figure>
+                                </a>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+        <div class="perfil-actions">
+            <button class="btn-action">Voltar</button>
+            <button class="btn-action">Gerenciar Perfis</button>
+        </div>
+        </main>
+
+    <!-- Página de conteúdo (Filmes e Séries) -->
+    <section id="content-page" class="hidden">
+        <div class="theme-switcher">
+            <button id="theme-toggle-content" type="button" aria-label="Alternar tema">🌙</button>
+        </div>
+        <div class="brand-content">Streamix</div>
+        
+        <!-- Navbar com categorias -->
+        <nav class="content-navbar">
+            <div class="navbar-container">
+                <ul class="nav-tabs">
+                    <li><button class="nav-tab active" data-category="inicio">Início</button></li>
+                    <li><button class="nav-tab" data-category="filmes">Filmes</button></li>
+                    <li><button class="nav-tab" data-category="series">Séries</button></li>
+                    <li><button class="nav-tab" data-category="bombando">Bombando</button></li>
+                    <li><button class="nav-tab" data-category="minha-lista">Minha Lista</button></li>
+                </ul>
+                <button id="profile-menu" class="profile-menu">👤</button>
+            </div>
+        </nav>
+
+        <!-- Conteúdo das categorias -->
+        <main class="content-main">
+            <!-- Início -->
+            <div id="inicio" class="content-section active">
+                <h2>Populares na Streamix</h2>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 1</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 2</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 3</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 4</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 5</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎬</div>
+                        <p class="movie-title">Filme 6</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filmes -->
+            <div id="filmes" class="content-section">
+                <h2>Filmes</h2>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">🎥</div>
+                        <p class="movie-title">Ação Filme 1</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎥</div>
+                        <p class="movie-title">Ação Filme 2</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎥</div>
+                        <p class="movie-title">Ação Filme 3</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🎥</div>
+                        <p class="movie-title">Ação Filme 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Séries -->
+            <div id="series" class="content-section">
+                <h2>Séries</h2>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">📺</div>
+                        <p class="movie-title">Série 1</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">📺</div>
+                        <p class="movie-title">Série 2</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">📺</div>
+                        <p class="movie-title">Série 3</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">📺</div>
+                        <p class="movie-title">Série 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bombando -->
+            <div id="bombando" class="content-section">
+                <h2>Bombando Agora</h2>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">🔥</div>
+                        <p class="movie-title">Trending 1</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🔥</div>
+                        <p class="movie-title">Trending 2</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🔥</div>
+                        <p class="movie-title">Trending 3</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">🔥</div>
+                        <p class="movie-title">Trending 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Minha Lista -->
+            <div id="minha-lista" class="content-section">
+                <h2>Minha Lista</h2>
+                <div class="movies-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">⭐</div>
+                        <p class="movie-title">Favorito 1</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">⭐</div>
+                        <p class="movie-title">Favorito 2</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">⭐</div>
+                        <p class="movie-title">Favorito 3</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Menu de perfil -->
+        <div id="profile-dropdown" class="profile-dropdown hidden">
+            <button id="logout-btn">Logout</button>
+            <button id="back-profiles-btn">Voltar para Perfis</button>
+        </div>
+    </section>
+
+ <script src="script.js"></script>
+</body>
+</html>

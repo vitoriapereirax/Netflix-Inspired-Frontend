@@ -1,0 +1,1247 @@
+/* Estilos principais do site Netflix clone */
+:root {
+    --bg-color: #141414;
+    --text-color: #ffffff;
+    --panel-color: #1b1b1b;
+    --border-color: #42d1fd;
+    --shadow-color: rgb(51, 201, 247);
+    --button-bg: rgba(255, 255, 255, 0.08);
+    --button-text: #b1def0;
+}
+
+body.light-mode {
+    background: url('assets/light.jpeg') center center / cover no-repeat fixed;
+    --bg-color: #f4f4f4;
+    --text-color: #740606;
+    --panel-color: #ffffff;
+    --border-color: #0968e5;
+    --shadow-color: rgb(202, 53, 70);
+    --button-bg: rgba(0, 0, 0, 0.08);
+    --button-text: #07658a;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+}
+
+/* Estiliza o elemento <body> para o fundo escuro e tipografia geral */
+body {
+    /* imagem de fundo do site */
+    background: url('assets/dark.jpeg') center center / cover no-repeat fixed;
+    /* camada de cor semitransparente (overlay) */
+    
+    background-color: rgba(20, 20, 20, 0.55);
+    background-blend-mode: multiply;
+    /* cor do texto */
+    color: var(--text-color);
+    /* fonte principal e fallback */
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    /* remove margem padrão do body */
+    margin: 0;
+    /* garante altura mínima para ocupar toda a tela */
+    min-height: 100vh;
+    padding: 0 0.75rem;
+}
+
+/* Estiliza o container principal para centralizar vertical e horizontalmente */
+main {
+    /* layout flexível no container principal */
+    display: none;
+    /* empilha itens na vertical */
+    flex-direction: column;
+    /* centraliza horizontalmente */
+    align-items: center;
+    /* centraliza verticalmente */
+    justify-content: center;
+    /* altura mínima igual à altura da janela */
+    min-height: 100vh;
+    padding: 2rem 0;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+#theme-toggle {
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+#theme-toggle:hover {
+    transform: translateY(-1px);
+}
+
+/* Nome da marca fixo no canto superior esquerdo */
+.brand {
+    position: fixed;
+    top: 1rem;
+    left: 1rem; /* posiciona a marca no canto superior esquerdo */
+    z-index: 2;
+    color: #e50914;
+    font-size: 1.35rem;
+    font-weight: 900;/* negrito para destacar a marca */
+    text-transform: uppercase;/* espaçamento entre letras para estilo de marca */
+    letter-spacing: 0.18em;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Estiliza o título principal da página */
+h1 {
+    /* tamanho grande do título */
+    font-size: clamp(3rem, 4vw, 4rem);
+    /* negrito para destaque */
+    font-weight: bold;
+    /* espaço abaixo do título */
+    margin-bottom: 1rem;
+    /* espaçamento entre letras */
+    letter-spacing: 1px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+}
+
+body.light-mode h1 {
+    color: #740606;
+}
+
+/* Estilo da página de login inicial */
+#login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: absolute;
+    inset: 0;
+    background: url('assets/dark.jpeg') center center / cover no-repeat fixed;
+    background-color: rgba(104, 102, 102, 0.55);
+    background-blend-mode: multiply;
+    z-index: 1;
+
+}
+
+#login-page h1 {
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    background: rgba(158, 155, 155, 0.075);
+    border: 1px solid rgba(114, 86, 86, 0.45);
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: min(320px, 90vw);
+}
+
+#login-form label {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+#login-form input {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(243, 243, 243, 0.055);
+    color: #fff;
+    border-radius: 8px;
+}
+
+#login-form button {
+    padding: 0.4rem 0.8rem;
+    border: 0.7px solid #b10510;
+    background: #b10510;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.5s ease, background 0.5s ease;
+    width: auto;
+    min-width: 120px;
+}
+
+#login-form button:hover {
+    background: #8a0708;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+    transform: translateY(-3px);
+}
+
+#login-form button:active {
+    background: #6b0506;
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
+    transform: translateY(1px);
+}
+
+#login-page.hidden {
+    display: none;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    margin-bottom: 2.7rem;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+}
+
+
+/* Estiliza a seção que contém os perfis de usuário */
+section[aria-label="Perfis disponíveis"] {
+    /* usa 100% do contêiner pai */
+    width: 100%;
+    /* largura máxima para não esticar demais */
+    max-width: 1000px;
+    /* layout flexível */
+    display: flex;
+    /* centraliza navegacao */
+    justify-content: center;
+    padding: 0 0.5rem;
+    background: transparent;
+}
+
+/* Estiliza a ação de botões de gerenciamento de perfil */
+.perfil-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7.5rem;
+    margin-top: 3.5rem;
+}
+
+.btn-action {
+    border: 1px solid rgba(194, 77, 77, 0.75);
+    background: rgba(236, 202, 202, 0.541);
+    color: #a35454;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 150px;
+    transition: background 0.2s, transform 0.2s, border 0.2s;
+}
+
+.btn-action:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Modo escuro: botões transparentes com borda e texto white */
+body:not(.light-mode) .btn-action {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Estiliza o container de navegação que agrupa os links de perfil */
+.profiles-wrapper,
+.profiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profiles {
+    /* layout flexível horizontal */
+    display: flex;
+    /* permite que os perfis quebrem linha em telas menores */
+    flex-wrap: wrap;
+    /* espaço entre perfis */
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Estiliza cada item de perfil individual */
+.profile {
+    display: block;
+}
+
+.profile-add a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-add figure {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-circle {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+}
+
+.profile-add figcaption {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+/* Estiliza o link dentro do item de perfil */
+.profile > a {
+    /* remove sublinhado do link */
+    text-decoration: none;
+    /* cor do texto do link */
+    color: #fff;
+    /* animação suave apenas na sombra */
+    transition: box-shadow 0.2s;
+    display: block;
+}
+
+/* Efeito de hover para destacar o perfil selecionado pelo mouse */
+.profile:hover > a {
+    /* mantém posição fixa e aplica apenas sombra de destaque */
+    box-shadow: 0 0 12px var(--shadow-color);
+}
+
+/* Estiliza o elemento <figure> que envolve cada imagem e legenda */
+figure {
+    /* remove margem padrão */
+    margin: 0;
+    /* layout flexível para imagem e legenda */
+    display: flex;
+    /* empilha verticalmente */
+    flex-direction: column;
+    /* centraliza conteúdos */
+    align-items: center;
+    text-align: center;
+}
+
+/* Estiliza as imagens de perfil para tamanho igual e cantos arredondados */
+img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: #222;
+    display: block;
+    border: 1px transparent;
+}
+
+/* Efeito ao passar o mouse sobre a imagem de perfil */
+img:hover {
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+
+/* Estiliza a legenda abaixo de cada imagem de perfil */
+figcaption {
+    /* cor do texto do perfil, deve herdar o tema ativo */
+    color: var(--text-color);
+    /* tamanho da fonte da legenda */
+    font-size: 1.1rem;
+    /* peso da fonte */
+    font-weight: 500;
+    /* espaço acima da legenda */
+    margin-top: 0.5rem;
+    /* espaçamento entre letras */
+    letter-spacing: 0.5px;
+}
+
+/* Quebra de layout para tablets e dispositivos médios */
+@media (max-width: 1024px) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        padding: 1.25rem 0;
+    }
+
+    .brand {
+        top: 0.9rem;
+        left: 0.9rem;
+        font-size: 1.1rem;
+    }
+
+    .theme-switcher {
+        top: 0.9rem;
+        right: 0.9rem;
+    }
+
+    #theme-toggle {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    #login-form {
+        width: min(350px, 90vw);
+        padding: 1.15rem;
+    }
+
+    #login-form input {
+        font-size: 0.95rem;
+    }
+
+    .profiles {
+        gap: 1rem;
+    }
+
+    .profile {
+        flex: 1 1 100px;
+        min-width: 100px;
+    }
+
+    img {
+        width: 96px;
+        height: 96px;
+    }
+
+    .add-circle {
+        width: 96px;
+        height: 96px;
+        font-size: 2.5rem;
+    }
+
+    .perfil-actions {
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+    }
+
+    .btn-action {
+        width: 130px;
+        padding: 0.6rem 1rem;
+        font-size: 0.92rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Ajustes adicionais para celulares menores */
+@media (max-width: 768px) {
+    body {
+        padding: 0 0.5rem;
+    }
+
+    main {
+        padding: 1.5rem 0;
+    }
+
+    .brand {
+        font-size: 1rem;
+        top: 0.7rem;
+        left: 0.7rem;
+    }
+
+    .theme-switcher {
+        top: 0.7rem;
+        right: 0.7rem;
+    }
+
+    #theme-toggle {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    #login-form {
+        width: min(290px, 90vw);
+        padding: 1.25rem;
+    }
+
+    #login-form input {
+        font-size: 0.9rem;
+    }
+
+    .profiles {
+        gap: 1rem;
+    }
+
+    .profile {
+        flex: 1 1 90px;
+        min-width: 90px;
+    }
+
+    img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .add-circle {
+        width: 90px;
+        height: 90px;
+        font-size: 2.3rem;
+    }
+
+    .perfil-actions {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2.5rem;
+    }
+
+    .btn-action {
+        width: 120px;
+        padding: 0.65rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 0 0.5rem;
+    }
+
+    main {
+        padding: 1rem 0;
+    }
+
+    .brand {
+        font-size: 0.9rem;
+        top: 0.6rem;
+        left: 0.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    .theme-switcher {
+        top: 0.6rem;
+        right: 0.6rem;
+    }
+
+    #theme-toggle {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    #login-form {
+        width: min(280px, 92vw);
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+
+    #login-form label {
+        font-size: 0.95rem;
+    }
+
+    #login-form input {
+        padding: 0.55rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    #login-form button {
+        padding: 0.5rem 0.75rem;
+        min-width: 90px;
+        font-size: 0.9rem;
+    }
+
+    .profiles {
+        gap: 0.6rem;
+    }
+
+    .profile {
+        flex: 1 1 75px;
+        min-width: 75px;
+    }
+
+    img {
+        width: 75px;
+        height: 75px;
+        margin-bottom: 0.5rem;
+    }
+
+    .add-circle {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    figcaption {
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+    }
+
+    .perfil-actions {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2rem;
+    }
+
+    .btn-action {
+        width: 110px;
+        padding: 0.55rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    h1 {
+        font-size: clamp(1.3rem, 5vw, 2.2rem);
+        margin-bottom: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 0.4rem;
+    }
+
+    main {
+        padding: 0.75rem 0;
+    }
+
+    .brand {
+        font-size: 0.8rem;
+        top: 0.5rem;
+        left: 0.5rem;
+        letter-spacing: 0.08em;
+    }
+
+    .theme-switcher {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    #theme-toggle {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    #login-form {
+        width: min(260px, 95vw);
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    #login-form label {
+        font-size: 0.9rem;
+    }
+
+    #login-form input {
+        padding: 0.5rem 0.65rem;
+        font-size: 0.85rem;
+    }
+
+    #login-form button {
+        padding: 0.45rem 0.7rem;
+        min-width: 80px;
+        font-size: 0.85rem;
+    }
+
+    .profiles {
+        gap: 0.5rem;
+    }
+
+    .profile {
+        flex: 1 1 65px;
+        min-width: 65px;
+    }
+
+    img {
+        width: 65px;
+        height: 65px;
+        margin-bottom: 0.4rem;
+    }
+
+    .add-circle {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    figcaption {
+        font-size: 0.8rem;
+        margin-top: 0.35rem;
+    }
+
+    .perfil-actions {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+    }
+
+    .btn-action {
+        width: 100px;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: clamp(1.1rem, 5vw, 1.8rem);
+        margin-bottom: 0.7rem;
+    }
+
+    h2 {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Ajustes para telas grandes e desktop amplo */
+@media (min-width: 1200px) {
+    section[aria-label="Perfis disponíveis"] {
+        padding: 0 1rem;
+    }
+
+    .profiles {
+        gap: 2.5rem;
+    }
+
+    .brand {
+        font-size: 1.7rem;
+    }
+
+    #login-form {
+        width: min(350px, 80vw);
+    }
+}
+
+/* ===== Estilos da Página de Conteúdo (Filmes e Séries) ===== */
+
+/* Página de conteúdo */
+#content-page {
+    display: none;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-top: 0;
+    background: url('assets/dark.jpeg') center center / cover no-repeat fixed;
+    background-color: rgba(20, 20, 20, 0.55);
+    background-blend-mode: multiply;
+}
+
+#content-page.hidden {
+    display: none;
+}
+
+#content-page:not(.hidden) {
+    display: block;
+}
+
+/* Marca na página de conteúdo */
+.brand-content {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    color: #e50914;
+    font-size: 1.35rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+}
+
+/* Navbar de conteúdo */
+.content-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(20, 20, 20, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-tab:hover {
+    color: #e50914;
+}
+
+.nav-tab.active {
+    color: #c04046;
+    border-bottom: 2px solid #e50914;
+}
+
+/* Menu de perfil */
+.profile-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.profile-dropdown {
+    position: fixed;
+    top: 4rem;
+    right: 2rem;
+    background: rgba(245, 232, 232, 0.37);
+    border: 1px solid rgba(255, 252, 252, 0.082);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 12;
+}
+
+.profile-dropdown.hidden {
+    display: none;
+}
+
+.profile-dropdown button {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--text-color);
+    padding: 0.65rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.profile-dropdown button:hover {
+    background: rgba(229, 9, 20, 0.8);
+}
+
+/* Container principal de conteúdo */
+.content-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.content-main h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Seções de conteúdo */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Grid de filmes */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.movie-card {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(229, 9, 20, 0.3);
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(51, 201, 247, 0.2));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--text-color);
+}
+
+.movie-title {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Modo claro */
+body.light-mode #content-page {
+    background: url('assets/light.jpeg') center center / cover no-repeat fixed;
+    background-color: rgba(244, 244, 244, 0.4);
+    background-blend-mode: lighten;
+}
+
+body.light-mode .content-navbar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+}
+
+body.light-mode .nav-tab {
+    color: #920808;
+}
+
+body.light-mode .nav-tab:hover,
+body.light-mode .nav-tab.active {
+    color: #e50914;
+}
+
+body.light-mode #theme-toggle-content {
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+    .brand-content {
+        font-size: 1.1rem;
+    }
+
+    .content-navbar {
+        padding: 0.9rem 0;
+    }
+
+    .navbar-container {
+        padding: 0 1rem;
+    }
+
+    .nav-tabs {
+        gap: 1rem;
+    }
+
+    .nav-tab {
+        font-size: 0.9rem;
+    }
+
+    .profile-menu {
+        font-size: 1.3rem;
+    }
+
+    .content-main {
+        padding: 2rem 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .content-main h2 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.03);
+    }
+
+    .movie-poster {
+        font-size: 2.5rem;
+    }
+
+    .movie-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsividade para celulares e tablets pequenos */
+@media (max-width: 768px) {
+    .brand-content {
+        font-size: 1rem;
+        top: 0.7rem;
+        left: 0.7rem;
+    }
+
+    .content-navbar {
+        padding: 0.8rem 0;
+    }
+
+    .navbar-container {
+        padding: 0 0.9rem;
+    }
+
+    .nav-tabs {
+        gap: 0.8rem;
+    }
+
+    .nav-tab {
+        font-size: 0.85rem;
+        padding: 0.4rem 0;
+    }
+
+    .profile-menu {
+        font-size: 1.25rem;
+    }
+
+    .profile-dropdown {
+        right: 0.9rem;
+        top: 3.2rem;
+        padding: 0.8rem;
+        min-width: 140px;
+    }
+
+    .profile-dropdown button {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .content-main {
+        padding: 2rem 1rem;
+        margin-top: 0.3rem;
+    }
+
+    .content-main h2 {
+        font-size: 1.4rem;
+        margin-top: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.9rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.04);
+    }
+
+    .movie-poster {
+        font-size: 2.2rem;
+    }
+
+    .movie-title {
+        font-size: 0.85rem;
+        margin-top: 0.6rem;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+    .brand-content {
+        font-size: 0.95rem;
+        top: 0.6rem;
+        left: 0.6rem;
+    }
+
+    .content-navbar {
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar-container {
+        padding: 0 0.75rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-tabs {
+        gap: 0.4rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 0.4rem;
+        flex: 1;
+        scroll-behavior: smooth;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+        height: 2px;
+    }
+
+    .nav-tabs::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .nav-tabs::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+    .nav-tab {
+        font-size: 0.75rem;
+        white-space: nowrap;
+        padding: 0.3rem 0;
+        flex-shrink: 0;
+    }
+
+    .profile-menu {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .profile-dropdown {
+        right: 0.75rem;
+        top: 3.2rem;
+        padding: 0.75rem;
+        min-width: 130px;
+    }
+
+    .profile-dropdown button {
+        font-size: 0.85rem;
+        padding: 0.55rem 0.75rem;
+    }
+
+    .content-main {
+        padding: 1.5rem 0.75rem;
+        margin-top: 0.2rem;
+    }
+
+    .content-main h2 {
+        font-size: 1.2rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.9rem;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+        gap: 0.7rem;
+        margin-bottom: 2rem;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.05);
+    }
+
+    .movie-poster {
+        font-size: 1.8rem;
+    }
+
+    .movie-title {
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Responsividade para celulares muito pequenos */
+@media (max-width: 480px) {
+    .brand-content {
+        font-size: 0.8rem;
+        top: 0.5rem;
+        left: 0.5rem;
+        letter-spacing: 0.1em;
+    }
+
+    .content-navbar {
+        padding: 0.6rem 0;
+    }
+
+    .navbar-container {
+        padding: 0 0.6rem;
+        gap: 0.8rem;
+    }
+
+    .nav-tabs {
+        gap: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .nav-tab {
+        font-size: 0.7rem;
+        padding: 0.25rem 0;
+    }
+
+    .profile-menu {
+        font-size: 1rem;
+    }
+
+    .profile-dropdown {
+        right: 0.6rem;
+        top: 3rem;
+        padding: 0.7rem;
+        min-width: 120px;
+    }
+
+    .profile-dropdown button {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .content-main {
+        padding: 1.2rem 0.6rem;
+        margin-top: 0.1rem;
+    }
+
+    .content-main h2 {
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.06);
+    }
+
+    .movie-poster {
+        font-size: 1.5rem;
+    }
+
+    .movie-title {
+        font-size: 0.65rem;
+        margin-top: 0.4rem;
+    }
+}

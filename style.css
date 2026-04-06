@@ -24,11 +24,15 @@ body.light-mode {
 }
 
 /* Estiliza o elemento <body> para o fundo escuro e tipografia geral */
+html {
+    min-height: 100%;
+    background-color: var(--bg-color);
+}
+
 body {
     /* imagem de fundo do site */
     background: url('assets/dark.jpeg') center center / cover no-repeat fixed;
     /* camada de cor semitransparente (overlay) */
-    
     background-color: rgba(20, 20, 20, 0.55);
     background-blend-mode: multiply;
     /* cor do texto */
@@ -784,6 +788,7 @@ figcaption {
 }
 
 .navbar-container {
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -831,16 +836,18 @@ figcaption {
 }
 
 .profile-dropdown {
-    position: fixed;
-    top: 4rem;
-    right: 2rem;
-    background: rgba(245, 232, 232, 0.37);
-    border: 1px solid rgba(255, 252, 252, 0.082);
-    border-radius: 8px;
-    padding: 1rem;
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    min-width: 180px;
+    background: rgba(28, 28, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    padding: 0.85rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
     z-index: 12;
 }
 
@@ -855,11 +862,14 @@ figcaption {
     padding: 0.65rem 1rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .profile-dropdown button:hover {
     background: rgba(229, 9, 20, 0.8);
+    border-color: rgba(229, 9, 20, 0.95);
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 /* Container principal de conteúdo */
@@ -925,10 +935,25 @@ figcaption {
 }
 
 /* Modo claro */
+body.light-mode {
+    background-color: rgba(244, 244, 244, 0.4);
+}
+
 body.light-mode #content-page {
     background: url('assets/light.jpeg') center center / cover no-repeat fixed;
     background-color: rgba(244, 244, 244, 0.4);
     background-blend-mode: lighten;
+}
+
+body.light-mode .profile-dropdown {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .profile-dropdown button {
+    background: rgba(0, 0, 0, 0.05);
+    color: #2c1414;
+    border-color: rgba(0, 0, 0, 0.12);
 }
 
 body.light-mode .content-navbar {

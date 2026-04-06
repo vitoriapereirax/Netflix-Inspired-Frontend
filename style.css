@@ -73,7 +73,8 @@ main {
     z-index: 2;
 }
 
-#theme-toggle {
+#theme-toggle,
+#theme-toggle-content {
     background: var(--button-bg);
     color: var(--button-text);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -84,7 +85,8 @@ main {
     transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-#theme-toggle:hover {
+#theme-toggle:hover,
+#theme-toggle-content:hover {
     transform: translateY(-1px);
 }
 
@@ -797,6 +799,11 @@ figcaption {
     align-items: center;
 }
 
+#theme-toggle-content {
+    margin-left: auto;
+    min-width: auto;
+}
+
 .nav-tabs {
     display: flex;
     gap: 2rem;
@@ -866,10 +873,10 @@ figcaption {
 }
 
 .profile-dropdown button:hover {
-    background: rgba(229, 9, 20, 0.8);
-    border-color: rgba(229, 9, 20, 0.95);
-    color: #ffffff;
-    transform: translateY(-1px);
+    background: rgba(238, 195, 197, 0.486);
+    border-color: rgba(241, 215, 216, 0.95);
+    color: #f0e4e8;
+    transform: translateY(3px);
 }
 
 /* Container principal de conteúdo */
@@ -946,14 +953,21 @@ body.light-mode #content-page {
 }
 
 body.light-mode .profile-dropdown {
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(255, 249, 249, 0.98);
+    border-color: rgba(229, 9, 20, 0.18);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .profile-dropdown button {
-    background: rgba(0, 0, 0, 0.05);
-    color: #2c1414;
-    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(229, 9, 20, 0.08);
+    color: #740606;
+    border-color: rgba(229, 9, 20, 0.22);
+}
+
+body.light-mode .profile-dropdown button:hover {
+    background: rgba(240, 146, 152, 0.9);
+    color: #ffffff;
+    border-color: rgba(179, 57, 64, 0.95);
 }
 
 body.light-mode .content-navbar {

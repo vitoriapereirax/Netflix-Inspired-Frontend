@@ -45,31 +45,58 @@ if (themeToggleContent) {
 const loginPage = document.getElementById('login-page');
 const mainPage = document.querySelector('main');
 const contentPage = document.getElementById('content-page');
+const signupPage = document.getElementById('signup-page');
 const loginForm = document.getElementById('login-form');
+const signupForm = document.getElementById('signup-form');
 const voltarButtons = document.querySelectorAll('.btn-action');
 const profileLinks = document.querySelectorAll('.profile > a');
+const addProfileLink = document.querySelector('.profile-add > a');
+
+const showSignup = () => {
+    loginPage.classList.add('hidden');
+    mainPage.style.display = 'none';
+    contentPage.classList.add('hidden');
+    signupPage.classList.remove('hidden');
+};
 
 const showLogin = () => {
     loginPage.classList.remove('hidden');
     mainPage.style.display = 'none';
     contentPage.classList.add('hidden');
+    signupPage.classList.add('hidden');
 };
 
 const showProfiles = () => {
     loginPage.classList.add('hidden');
     mainPage.style.display = 'flex';
     contentPage.classList.add('hidden');
+    signupPage.classList.add('hidden');
 };
 
 const showContent = () => {
     loginPage.classList.add('hidden');
     mainPage.style.display = 'none';
     contentPage.classList.remove('hidden');
+    signupPage.classList.add('hidden');
 };
 
 // Evento de login
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    showProfiles();
+});
+
+// Evento do botão Cadastrar-se na tela de login
+const signupRedirectBtn = document.getElementById('signup-redirect');
+if (signupRedirectBtn) {
+    signupRedirectBtn.addEventListener('click', showSignup);
+}
+
+// Evento de cadastro
+signupForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    // Aqui você pode adicionar validação adicional se necessário
+    alert('Conta criada com sucesso!');
     showProfiles();
 });
 
@@ -80,6 +107,20 @@ profileLinks.forEach(link => {
         showContent();
     });
 });
+
+// Evento de clique no perfil "Adicionar"
+if (addProfileLink) {
+    addProfileLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        showSignup();
+    });
+}
+
+// Botão voltar na página de cadastro
+const backToProfilesBtn = document.getElementById('back-to-profiles');
+if (backToProfilesBtn) {
+    backToProfilesBtn.addEventListener('click', showProfiles);
+}
 
 // Botões "Voltar"
 voltarButtons.forEach(btn => {

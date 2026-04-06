@@ -16,7 +16,10 @@
             <input id="email" name="email" type="email" placeholder="seu@email.com" required>
             <label for="password">Senha</label>
             <input id="password" name="password" type="password" placeholder="senha" required>
-            <button id="login-submit" type="submit">Entrar</button>
+            <div class="login-buttons">
+                <button id="login-submit" type="submit">Entrar</button>
+                <button id="signup-redirect" type="button">Cadastrar-se</button>
+            </div>
         </form>
     </section>
 
@@ -234,6 +237,28 @@
         <div id="profile-dropdown" class="profile-dropdown hidden">
             <button id="logout-btn">Sair</button>
             <button id="back-profiles-btn">Voltar para Perfis</button>
+        </div>
+    </section>
+
+    <!-- Página de cadastro -->
+    <section id="signup-page" class="hidden">
+        <h1>Criar Conta no Streamix</h1>
+        <form id="signup-form">
+            <label for="first-name">Nome</label>
+            <input id="first-name" name="first-name" type="text" placeholder="Seu nome" required>
+            <label for="last-name">Sobrenome</label>
+            <input id="last-name" name="last-name" type="text" placeholder="Seu sobrenome" required>
+            <label for="signup-email">E-mail</label>
+            <input id="signup-email" name="signup-email" type="email" placeholder="seu@email.com" required>
+            <label for="signup-password">Senha</label>
+            <input id="signup-password" name="signup-password" type="password" placeholder="senha" required>
+            <label for="confirm-password">Confirmar Senha</label>
+            <input id="confirm-password" name="confirm-password" type="password" placeholder="confirme sua senha" required>
+            <button id="signup-submit" type="submit">Cadastrar</button>
+        </form>
+        <div class="signup-actions">
+            <button id="back-to-profiles" class="btn-action">Voltar</button>
+            <button id="forgot-password" class="forgot-password-btn">Esqueceu a senha?</button>
         </div>
     </section>
 

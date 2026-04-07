@@ -1,52 +1,67 @@
-/* ===== Estilos Principais do Site Netflix Clone ===== */
+/* ============================================
+   STREAMIX - NETFLIX CLONE
+   Estilos Principais da Aplicação
+   ============================================
+*/
 
-/* Variáveis CSS para cores e temas */
+/* VARIÁVEIS CSS - MODO ESCURO
+   Define as cores padrão em modo escuro
+   Essas variáveis são usadas em toda a aplicação via var() */
 :root {
-    --bg-color: #141414;        /* Cor de fundo escuro */
-    --text-color: #ffffff;      /* Cor do texto principal */
-    --panel-color: #1b1b1b;     /* Cor de painéis/painéis */
-    --border-color: #42d1fd;    /* Cor de bordas e destaques */
-    --shadow-color: rgb(51, 201, 247);  /* Cor de sombras */
-    --button-bg: rgba(255, 255, 255, 0.08);  /* Fundo de botões */
-    --button-text: #b1def0;     /* Texto de botões */
+    --bg-color: #141414;              /* Fundo escuro principal */
+    --text-color: #ffffff;            /* Texto branco */
+    --panel-color: #1b1b1b;           /* Cor de painéis-secundários */
+    --border-color: #42d1fd;          /* Bordas em azul ciano */
+    --shadow-color: rgb(51, 201, 247); /* Sombras com cor ciana */
+    --button-bg: rgba(255, 255, 255, 0.08); /* Botões semi-transparentes */
+    --button-text: #b1def0;           /* Texto dos botões */
 }
 
-/* Estilos para o modo claro */
+/* MODO CLARO - OVERRIDE DAS VARIÁVEIS
+   Quando body tem classe 'light-mode', essas cores substituem as do :root */
 body.light-mode {
+    /* Usa imagem clara como fundo */
     background: url('assets/light.jpeg') center center / cover no-repeat fixed;
-    --bg-color: #f4f4f4;        /* Fundo claro */
-    --text-color: #740606;      /* Texto escuro */
-    --panel-color: #ffffff;     /* Painéis brancos */
-    --border-color: #0968e5;    /* Bordas azuis */
-    --shadow-color: rgb(202, 53, 70);  /* Sombras vermelhas */
-    --button-bg: rgba(0, 0, 0, 0.08);  /* Botões com fundo escuro sutil */
-    --button-text: #07658a;     /* Texto azul dos botões */
+    
+    /* Sobrescreve as cores para modo claro */
+    --bg-color: #f4f4f4;              /* Fundo claro */
+    --text-color: #740606;            /* Texto escuro/vermelho */
+    --panel-color: #ffffff;           /* Painéis brancos */
+    --border-color: #0968e5;          /* Bordas azuis */
+    --shadow-color: rgb(202, 53, 70); /* Sombras vermelhas */
+    --button-bg: rgba(0, 0, 0, 0.08); /* Botões com sombra escura */
+    --button-text: #07658a;           /* Texto azul */
     min-height: 100vh;
     background-color: rgba(255, 255, 255, 0.4);
     background-blend-mode: lighten;
 }
 
-/* Estiliza o elemento <html> para garantir altura mínima */
+/* ELEMENTO HTML - Define altura mínima e cor de fundo */
 html {
-    min-height: 100%;
-    background-color: var(--bg-color);
+    min-height: 100%;                 /* Ocupa altura total da tela */
+    background-color: var(--bg-color); /* Usa variável de cor de fundo */
 }
 
+/* ELEMENTO BODY - Estilos globais da página */
 body {
-    /* imagem de fundo do site */
+    /* Imagem de fundo do site (modo escuro) - posicionada fixo e covering */
     background: url('assets/dark.jpeg') center center / cover no-repeat fixed;
-    /* camada de cor semitransparente (overlay) */
+    
+    /* Camada de cor semitransparente (overlay) sobre a imagem */
     background-color: rgba(20, 20, 20, 0.55);
+    /* Multiplica a imagem com a cor para efeito de escurecimento */
     background-blend-mode: multiply;
-    /* cor do texto */
-    color: var(--text-color);
-    /* fonte principal e fallback */
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-    /* remove margem padrão do body */
-    margin: 0;
-    /* garante altura mínima para ocupar toda a tela */
-    min-height: 100vh;
-    padding: 0 0.75rem;
+    
+    /* Tipografia geral */
+    color: var(--text-color);         /* Usa cor de texto da variável */
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif; /* Font stack com fallbacks */
+    
+    /* Reset de espaçamento padrão */
+    margin: 0;                        /* Remove margem padrão */
+    
+    /* Altura e padding */
+    min-height: 100vh;                /* Ocupa pelo menos a altura da janela */
+    padding: 0 0.75rem;               /* Pequeno padding horizontal */
 }
 
 /* Estiliza o container principal para centralizar vertical e horizontalmente */
@@ -201,6 +216,19 @@ body.light-mode h1 {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-top: 0.75rem; /* afasta os botões do formulário para baixo */
+}
+
+.forgot-password-btn {
+    display: inline-block;
+    margin: 0.8rem auto 0; /* centraliza horizontalmente */
+    text-decoration: underline;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.forgot-password-btn:hover {
+    color: #e50914;
 }
 
 #signup-redirect {
@@ -214,27 +242,9 @@ body.light-mode h1 {
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-.forgot-password-btn {
-    margin-top: 0.5rem;
-   
-    border: none;
-    color: #ffffff;
-    font-size: 0.85rem;
-    cursor: pointer;
-    text-decoration: underline;
-    padding: 0.5rem;
-    align-self: center;
-}
-
-.forgot-password-btn:hover {
-    color: #e50914;
-}
-
 #login-page.hidden {
     display: none;
 }
-
-/* ===== Estilos da Página de Cadastro ===== */
 
 /* Estilo da página de cadastro */
 #signup-page {
@@ -253,7 +263,9 @@ body.light-mode h1 {
 
 #signup-page h1 {
     color: #ffffff;
-    margin-bottom: 1.50rem;
+    margin-bottom: 1.25rem;
+    align-self: flex-start;        /* Alinha o título no canto esquerdo da página */
+    margin-left: 1.5rem;          /* Espaço entre o título e a borda esquerda */
 }
 
 #signup-form {
@@ -273,7 +285,7 @@ body.light-mode h1 {
 }
 
 #signup-form input {
-    padding: 0.75rem 0.75rem;
+    padding: 0.65rem 0.75rem;
     border: 1px solid rgba(255, 255, 255, 0.45);
     background: rgba(243, 243, 243, 0.055);
     color: #fff;
@@ -281,14 +293,14 @@ body.light-mode h1 {
 }
 
 #signup-form button {
-    padding: 0.4rem 0.8rem;
+    padding: 0.1rem 0.3rem;
     border: 0.7px solid #b10510;
     background: #b10510;
     color: #fff;
     border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
-    transition: box-shadow 0.25s ease, background 0.25s ease;
+    transition: transform 0.15s ease, box-shadow 0.5s ease, background 0.5s ease;
     width: auto;
     min-width: 120px;
 }
@@ -296,29 +308,45 @@ body.light-mode h1 {
 #signup-form button:hover {
     background: #8a0708;
     box-shadow: 0 6px 15px rgba(229, 151, 151, 0.35);
+    transform: translateY(-3px);
+    padding: 0.4rem 0.8rem;
+    
 }
 
 #signup-form button:active {
     background: #6b0506;
     box-shadow: inset 0 2px 3px rgba(129, 120, 120, 0.4);
+    transform: translateY(1px);
+    padding: 0.4rem 0.8rem;;
 }
 
+.forgot-password-btn {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0.9rem;
+}
+
+.forgot-password-btn:hover {
+    color: #e50914;
+}
+
+.signup-actions,
 .signup-buttons {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.signup-actions {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-    width: min(359px, 90vw);
+    justify-content: center;       /* centraliza os botões de cadastro */
+    gap: 1rem;                     /* espaço uniforme entre os dois botões */
+    margin-top: 1.5rem;            /* distancia os botões do último campo do formulário */
+    width: 100%;
 }
 
-.signup-actions .btn-action {
+.signup-actions .btn-action,
+.signup-buttons .btn-action {
     border: 1px solid rgba(194, 77, 77, 0.75);
     background: rgba(236, 202, 202, 0.541);
     color: #a35454;
@@ -329,13 +357,6 @@ body.light-mode h1 {
     cursor: pointer;
     width: auto;
     transition: background 0.2s, transform 0.2s, border 0.2s;
-}
-
-.signup-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
 }
 
 #back-to-profiles {
@@ -372,17 +393,15 @@ h2 {
 }
 
 
-/* ===== Seção de Perfis ===== */
-
 /* Estiliza a seção que contém os perfis de usuário */
 section[aria-label="Perfis disponíveis"] {
-    /* Usa 100% do contêiner pai */
+    /* usa 100% do contêiner pai */
     width: 100%;
-    /* Largura máxima para não esticar demais */
+    /* largura máxima para não esticar demais */
     max-width: 1000px;
-    /* Layout flexível */
+    /* layout flexível */
     display: flex;
-    /* Centraliza navegação */
+    /* centraliza navegacao */
     justify-content: center;
     padding: 0 0.5rem;
     background: transparent;
@@ -538,8 +557,6 @@ figcaption {
     /* espaçamento entre letras */
     letter-spacing: 0.5px;
 }
-
-/* ===== Responsividade ===== */
 
 /* Quebra de layout para tablets e dispositivos médios */
 @media (max-width: 1024px) {
@@ -889,28 +906,38 @@ figcaption {
     }
 }
 
-/* Ajustes para telas grandes e desktop amplo */
+/* ===== SEÇÃO 19: TELAS GRANDES/DESKTOP (min-width: 1200px) =====
+   Ajustes para telas grandes - expande o layout para melhor aproveitamento de espaço */
+
 @media (min-width: 1200px) {
+    /* Seção de perfis com padding maior */
     section[aria-label="Perfis disponíveis"] {
         padding: 0 1rem;
     }
 
+    /* Aumenta gap entre perfis para telas grandes */
     .profiles {
         gap: 2.5rem;
     }
 
+    /* Marca maior */
     .brand {
         font-size: 1.7rem;
     }
 
+    /* Form de login com tamanho máximo */
     #login-form {
         width: min(350px, 80vw);
     }
 }
 
-/* ===== Estilos da Página de Conteúdo (Filmes e Séries) ===== */
 
-/* Página de conteúdo */
+/* ===== SEÇÃO 7: PÁGINA DE CONTEÚDO (FILMES E SÉRIES) =====
+   Estilos para a página exibida após selecionar um perfil
+   Contém navbar com abas de navegação, grid de filmes, e menu de perfil */
+
+/* Página de conteúdo - estrutura base
+   Estado inicial: display none para que seja mostrada apenas quando ativada por showContent() */
 #content-page {
     display: none;
     position: relative;
@@ -922,15 +949,18 @@ figcaption {
     background-blend-mode: multiply;
 }
 
+/* Quando classe hidden é adicionada, garante que a página fica oculta */
 #content-page.hidden {
     display: none;
 }
 
+/* Quando classe hidden é removida, exibe a página com display block */
 #content-page:not(.hidden) {
     display: block;
 }
 
-/* Marca na página de conteúdo */
+/* Marca (logo) na página de conteúdo
+   Posicionada fixo no canto superior esquerdo, mesmo quando faz scroll */
 .brand-content {
     position: fixed;
     top: 1rem;
@@ -946,17 +976,23 @@ figcaption {
     border-radius: 0;
 }
 
-/* Navbar de conteúdo */
+/* ===== SEÇÃO 8: NAVBAR DE NAVEGAÇÃO =====
+   Contém abas de categorias (Início, Filmes, Séries) e menu de perfil */
+
+/* Navbar sticky (fica no topo ao fazer scroll)
+   Usa gradient semitransparente com backdrop blur para efeito glass-morphism */
 .content-navbar {
     position: sticky;
     top: 0;
     z-index: 9;
     background: linear-gradient(180deg, rgba(20, 20, 20, 0.95) 0%, rgba(20, 20, 20, 0.85) 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);                    /* Efeito desfoque no fundo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
     padding: 1rem 0;
 }
 
+/* Container da navbar - centraliza conteúdo com max-width
+   display flex com space-between para colocar logo/abas à esquerda e perfil à direita */
 .navbar-container {
     position: relative;
     max-width: 1400px;
@@ -967,11 +1003,18 @@ figcaption {
     align-items: center;
 }
 
+/* Botão de tema na navbar de conteúdo
+   margin-left: auto o empurra à direita */
 #theme-toggle-content {
     margin-left: auto;
     min-width: auto;
 }
 
+/* ===== SEÇÃO 9: ABAS DE NAVEGAÇÃO =====
+   Botões para alternar entre categorias (Início, Filmes, Séries, etc) */
+
+/* Container das abas
+   display flex com gap para espaçar os botões horizontalmente */
 .nav-tabs {
     display: flex;
     gap: 2rem;
@@ -980,6 +1023,8 @@ figcaption {
     padding: 0;
 }
 
+/* Botão individual de aba
+   Sem background, apenas texto com borda inferior animada */
 .nav-tab {
     background: none;
     border: none;
@@ -988,20 +1033,27 @@ figcaption {
     font-weight: 500;
     cursor: pointer;
     padding: 0.5rem 0;
-    transition: color 0.3s, border-bottom 0.3s;
-    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s; /* Animação suave */
+    border-bottom: 2px solid transparent;        /* Borda que aparece no hover/active */
 }
 
+/* Ao passar mouse, aba fica vermelha (cor Netflix) */
 .nav-tab:hover {
     color: #e50914;
 }
 
+/* Aba ativa - exibe borda vermelha abaixo
+   Usada por navTabs forEach no JavaScript para marcar a aba atualmente selecionada */
 .nav-tab.active {
     color: #c04046;
     border-bottom: 2px solid #e50914;
 }
 
-/* Menu de perfil */
+/* ===== SEÇÃO 10: MENU DE PERFIL (DROPDOWN) =====
+   Botão 👤 na navbar que abre menu com opções (Sair, Voltar para Perfis) */
+
+/* Botão de perfil na navbar
+   Apenas ícone, sem background ou borda */
 .profile-menu {
     background: none;
     border: none;
@@ -1010,26 +1062,32 @@ figcaption {
     z-index: 11;
 }
 
+/* Menu dropdown de perfil
+   Posicionado absolutamente abaixo do botão de perfil
+   Aparece/desaparece com classe 'hidden' controlada por JavaScript */
 .profile-dropdown {
     position: absolute;
-    top: calc(100% + 0.45rem);
-    right: 0;
+    top: calc(100% + 0.45rem);              /* Logo abaixo do botão */
+    right: 0;                                /* Alinhado à direita */
     min-width: 180px;
     background: rgba(28, 28, 28, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 10px;
     padding: 0.85rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;                  /* Botões empilhados verticalmente */
     gap: 0.5rem;
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28); /* Sombra para profundidade */
     z-index: 12;
 }
 
+/* Quando classe hidden é presente, menu fica invisível */
 .profile-dropdown.hidden {
     display: none;
 }
 
+/* Botões dentro do dropdown
+   Cada botão (Sair, Voltar para Perfis) com background semitransparente */
 .profile-dropdown button {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -1040,6 +1098,8 @@ figcaption {
     transition: background 0.2s, transform 0.2s, color 0.2s, border-color 0.2s;
 }
 
+/* Efeito hover no botão do dropdown
+   Aumenta opacidade, muda cor e aplica sombra */
 .profile-dropdown button:hover {
     background: rgba(238, 195, 197, 0.486);
     border-color: rgba(241, 215, 216, 0.95);
@@ -1047,13 +1107,19 @@ figcaption {
     transform: translateY(3px);
 }
 
-/* Container principal de conteúdo */
+/* ===== SEÇÃO 11: ÁREA DE CONTEÚDO PRINCIPAL =====
+   Container para o grid de filmes/séries */
+
+/* Container principal de conteúdo
+   Centralizado com max-width e padding lateral */
 .content-main {
     max-width: 1400px;
     margin: 0 auto;
     padding: 3rem 2rem;
 }
 
+/* Títulos das seções de conteúdo
+   Ex: "Filmes em Alta", "Séries Populares", etc */
 .content-main h2 {
     font-size: 1.8rem;
     margin-top: 2rem;
@@ -1061,16 +1127,27 @@ figcaption {
     color: var(--text-color);
 }
 
-/* Seções de conteúdo */
+/* ===== SEÇÃO 12: SEÇÕES DE CONTEÚDO =====
+   Containers para cada categoria (Início, Filmes, Séries, etc) */
+
+/* Seção de conteúdo individual
+   Por padrão, display none (invisível)
+   Ativada por addClass('active') quando aba é clicada */
 .content-section {
     display: none;
 }
 
+/* Quando ativa, seção é exibida como bloco */
 .content-section.active {
     display: block;
 }
 
-/* Grid de filmes */
+/* ===== SEÇÃO 13: GRID DE FILMES/SÉRIES =====
+   Layout responsivo para exibir cards de filmes/séries em grade */
+
+/* Grid de filmes - CSS Grid responsivo
+   auto-fill cria colunas automaticamente conforme tela permite
+   minmax(150px, 1fr) garante coluna mínima de 150px, máximo flexível */
 .movies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -1078,16 +1155,23 @@ figcaption {
     margin-bottom: 3rem;
 }
 
+/* Card individual do filme
+   Pequena animação ao hover para destacar */
 .movie-card {
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Efeito ao passar mouse sobre o card
+   Aumenta tamanho levemente e adiciona sombra vermelha */
 .movie-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(229, 9, 20, 0.3);
 }
 
+/* Pôster do filme (imagem ou placeholder)
+   Mantém proporção 2:3 (colunares padrão de filmes)
+   Gradient de placeholder quando não há imagem real */
 .movie-poster {
     width: 100%;
     aspect-ratio: 2 / 3;
@@ -1097,10 +1181,11 @@ figcaption {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 3rem;                          /* Reels ou emojis como placeholder */
     color: var(--text-color);
 }
 
+/* Título do filme abaixo do pôster */
 .movie-title {
     margin-top: 0.75rem;
     font-size: 0.95rem;
@@ -1109,57 +1194,75 @@ figcaption {
     font-weight: 500;
 }
 
-/* ===== Estilos para Modo Claro ===== */
+/* ===== SEÇÃO 14: MODO CLARO - OVERRIDES =====
+   Quando body tem classe 'light-mode', esses estilos substituem o escuro */
 
-/* Modo claro */
 body.light-mode {
     background-color: rgba(244, 244, 244, 0.4);
 }
 
+/* Página de conteúdo em modo claro
+   Usa imagem light.jpeg com blend mode lighten */
 body.light-mode #content-page {
     background: url('assets/light.jpeg') center center / cover no-repeat fixed;
     background-color: rgba(244, 244, 244, 0.4);
     background-blend-mode: lighten;
 }
 
+/* Menu dropdown em modo claro
+   Fundo branco com borda vermelha */
 body.light-mode .profile-dropdown {
     background: rgba(255, 249, 249, 0.98);
     border-color: rgba(229, 9, 20, 0.18);
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* Botões do dropdown em modo claro */
 body.light-mode .profile-dropdown button {
     background: rgba(229, 9, 20, 0.08);
     color: #740606;
     border-color: rgba(229, 9, 20, 0.22);
 }
 
+/* Hover dos botões do dropdown em modo claro
+   Vermelho avermelhado (fundo) com texto branco */
 body.light-mode .profile-dropdown button:hover {
     background: rgba(240, 146, 152, 0.9);
     color: #ffffff;
     border-color: rgba(179, 57, 64, 0.95);
 }
 
+/* Navbar em modo claro
+   Fundo branco semitransparente com gradient */
 body.light-mode .content-navbar {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
 }
 
+/* Abas em modo claro
+   Texto vermelho escuro ao contrário do branco */
 body.light-mode .nav-tab {
     color: #920808;
 }
 
+/* Hover e active das abas em modo claro */
 body.light-mode .nav-tab:hover,
 body.light-mode .nav-tab.active {
     color: #e50914;
 }
 
+/* Botão de tema em modo claro */
 body.light-mode #theme-toggle-content {
     background: var(--button-bg);
     color: var(--button-text);
 }
 
-/* Responsividade para tablets */
+
+/* ===== SEÇÃO 15: RESPONSIVIDADE - TABLETS (max-width: 1024px) =====
+   Ajustes para tablets e telas médias
+   Reduz tamanho de fonte, diminui gaps, adapta grid */
+
 @media (max-width: 1024px) {
+    /* Reduz marca para ocupar menos espaço */
     .brand-content {
         font-size: 1.1rem;
     }
@@ -1172,75 +1275,94 @@ body.light-mode #theme-toggle-content {
         padding: 0 1rem;
     }
 
+    /* Gap entre abas reduzido de 2rem para 1rem */
     .nav-tabs {
         gap: 1rem;
     }
 
+    /* Fonte da aba menor para caber no espaço reduzido */
     .nav-tab {
         font-size: 0.9rem;
     }
 
+    /* Ícone de perfil levemente menor */
     .profile-menu {
         font-size: 1.3rem;
     }
 
+    /* Padding do container principal reduzido */
     .content-main {
         padding: 2rem 1rem;
         margin-top: 0.5rem;
     }
 
+    /* Título das seções menor */
     .content-main h2 {
         font-size: 1.5rem;
         margin-top: 1.5rem;
     }
 
+    /* Grid de filmes com colunas menores (minmax 120px ao invés de 150px) */
     .movies-grid {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 1rem;
     }
 
+    /* Animação de hover reduzida (1.03 ao invés de 1.05) */
     .movie-card:hover {
         transform: scale(1.03);
     }
 
+    /* Ícone dos filmes menor */
     .movie-poster {
         font-size: 2.5rem;
     }
 
+    /* Título dos filmes menor */
     .movie-title {
         font-size: 0.9rem;
     }
 }
 
-/* Responsividade para celulares e tablets pequenos */
+/* ===== SEÇÃO 16: RESPONSIVIDADE - TABLETS PEQUENOS (max-width: 768px) =====
+   Ajustes para tablets pequenos e celulares em landscape
+   Menu começa a ficar compacto, abas reduzidas em tamanho */
+
 @media (max-width: 768px) {
+    /* Marca menor ainda */
     .brand-content {
         font-size: 1rem;
         top: 0.7rem;
         left: 0.7rem;
     }
 
+    /* Padding da navbar ainda mais reduzido */
     .content-navbar {
         padding: 0.8rem 0;
     }
 
+    /* Padding do container da navbar reduzido */
     .navbar-container {
         padding: 0 0.9rem;
     }
 
+    /* Gap entre abas diminui significativamente */
     .nav-tabs {
         gap: 0.8rem;
     }
 
+    /* Font das abas reduzida */
     .nav-tab {
         font-size: 0.85rem;
         padding: 0.4rem 0;
     }
 
+    /* Ícone de perfil ainda menor */
     .profile-menu {
         font-size: 1.25rem;
     }
 
+    /* Menu dropdown com posição ajustada (mais à direita) */
     .profile-dropdown {
         right: 0.9rem;
         top: 3.2rem;
@@ -1248,6 +1370,7 @@ body.light-mode #theme-toggle-content {
         min-width: 140px;
     }
 
+    /* Botões do dropdown com font menor */
     .profile-dropdown button {
         font-size: 0.9rem;
         padding: 0.6rem 0.8rem;
@@ -1258,60 +1381,74 @@ body.light-mode #theme-toggle-content {
         margin-top: 0.3rem;
     }
 
+    /* Título das seções com tamanho menor */
     .content-main h2 {
         font-size: 1.4rem;
         margin-top: 1.3rem;
         margin-bottom: 1rem;
     }
 
+    /* Grid de filmes com colunas ainda menores (110px) */
     .movies-grid {
         grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
         gap: 0.9rem;
         margin-bottom: 2.5rem;
     }
 
+    /* Hover com escala um pouco menor */
     .movie-card:hover {
         transform: scale(1.04);
     }
 
+    /* Ícone menor */
     .movie-poster {
         font-size: 2.2rem;
     }
 
+    /* Título mais compacto */
     .movie-title {
         font-size: 0.85rem;
         margin-top: 0.6rem;
     }
 }
 
-/* Responsividade para celulares */
+/* ===== SEÇÃO 17: RESPONSIVIDADE - CELULARES (max-width: 600px) =====
+   Ajustes para celulares em portrait
+   Abas fazem scroll horizontal, layout muito mais compacto */
+
 @media (max-width: 600px) {
+    /* Marca reduzida */
     .brand-content {
         font-size: 0.95rem;
         top: 0.6rem;
         left: 0.6rem;
     }
 
+    /* Navbar super compacta */
     .content-navbar {
         padding: 0.7rem 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
+    /* Navbar container com flex-wrap para permitir quebra de linha */
     .navbar-container {
         padding: 0 0.75rem;
         flex-wrap: wrap;
         gap: 1rem;
     }
 
+    /* Abas com scroll horizontal quando muitas
+       Permite que abas fiquem lado a lado e usuário possa fazer scroll */
     .nav-tabs {
         gap: 0.4rem;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow-x: auto;     /* Scroll horizontal */
+        overflow-y: hidden;   /* Sem scroll vertical */
         padding-bottom: 0.4rem;
-        flex: 1;
-        scroll-behavior: smooth;
+        flex: 1;              /* Ocupa espaço disponível */
+        scroll-behavior: smooth; /* Scroll suave */
     }
 
+    /* Scrollbar customizada - barra de scroll fina para tablets/celulares */
     .nav-tabs::-webkit-scrollbar {
         height: 2px;
     }
@@ -1325,18 +1462,21 @@ body.light-mode #theme-toggle-content {
         border-radius: 4px;
     }
 
+    /* Abas com texto sem quebras (nowrap) */
     .nav-tab {
         font-size: 0.75rem;
-        white-space: nowrap;
+        white-space: nowrap;  /* Não quebra o texto */
         padding: 0.3rem 0;
-        flex-shrink: 0;
+        flex-shrink: 0;       /* Não encolhe não importa o tamanho */
     }
 
+    /* Ícone de perfil sem encolher */
     .profile-menu {
         font-size: 1.1rem;
-        flex-shrink: 0;
+        flex-shrink: 0;       /* Mantém tamanho fixo */
     }
 
+    /* Menu dropdown compacto */
     .profile-dropdown {
         right: 0.75rem;
         top: 3.2rem;
@@ -1344,44 +1484,55 @@ body.light-mode #theme-toggle-content {
         min-width: 130px;
     }
 
+    /* Botões do dropdown ainda mais compactos */
     .profile-dropdown button {
         font-size: 0.85rem;
         padding: 0.55rem 0.75rem;
     }
 
+    /* Conteúdo principal muito compacto */
     .content-main {
         padding: 1.5rem 0.75rem;
         margin-top: 0.2rem;
     }
 
+    /* Título das seções reduzido */
     .content-main h2 {
         font-size: 1.2rem;
         margin-top: 1.2rem;
         margin-bottom: 0.9rem;
     }
 
+    /* Grid com colunas pequenas (90px) */
     .movies-grid {
         grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
         gap: 0.7rem;
         margin-bottom: 2rem;
     }
 
+    /* Hover não muito agressivo */
     .movie-card:hover {
         transform: scale(1.05);
     }
 
+    /* Ícone pequeno */
     .movie-poster {
         font-size: 1.8rem;
     }
 
+    /* Título bem pequeno */
     .movie-title {
         font-size: 0.75rem;
         margin-top: 0.5rem;
     }
 }
 
-/* Responsividade para celulares muito pequenos */
+/* ===== SEÇÃO 18: RESPONSIVIDADE - CELULARES MUITO PEQUENOS (max-width: 480px) =====
+   Ajustes para celulares pequenos e antigos
+   Layout extremamente compacto, prioriza funcionalidade */
+
 @media (max-width: 480px) {
+    /* Marca minimal */
     .brand-content {
         font-size: 0.8rem;
         top: 0.5rem;
@@ -1389,29 +1540,35 @@ body.light-mode #theme-toggle-content {
         letter-spacing: 0.1em;
     }
 
+    /* Navbar extremamente compacta */
     .content-navbar {
         padding: 0.6rem 0;
     }
 
+    /* Container compacto */
     .navbar-container {
         padding: 0 0.6rem;
         gap: 0.8rem;
     }
 
+    /* Abas com gap mínimo */
     .nav-tabs {
         gap: 0.3rem;
         padding-bottom: 0.3rem;
     }
 
+    /* Fonte minimal */
     .nav-tab {
         font-size: 0.7rem;
         padding: 0.25rem 0;
     }
 
+    /* Ícone de perfil menor */
     .profile-menu {
         font-size: 1rem;
     }
 
+    /* Menu muito compacto */
     .profile-dropdown {
         right: 0.6rem;
         top: 3rem;
@@ -1419,38 +1576,45 @@ body.light-mode #theme-toggle-content {
         min-width: 120px;
     }
 
+    /* Botões muito pequenos */
     .profile-dropdown button {
         font-size: 0.8rem;
         padding: 0.5rem 0.7rem;
     }
 
+    /* Conteúdo principal extremamente compacto */
     .content-main {
         padding: 1.2rem 0.6rem;
         margin-top: 0.1rem;
     }
 
+    /* Título das seções minimal */
     .content-main h2 {
         font-size: 1rem;
         margin-top: 1rem;
         margin-bottom: 0.8rem;
     }
 
+    /* Grid com colunas bem pequenas (75px) */
     .movies-grid {
         grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
         gap: 0.6rem;
         margin-bottom: 1.5rem;
     }
 
+    /* Hover suave */
     .movie-card:hover {
         transform: scale(1.06);
     }
 
+    /* Ícone muito pequeno */
     .movie-poster {
         font-size: 1.5rem;
     }
 
+    /* Título muito pequeno */
     .movie-title {
         font-size: 0.65rem;
         margin-top: 0.4rem;
     }
-}      
+}

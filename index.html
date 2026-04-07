@@ -1,65 +1,74 @@
+<!-- Aplicação Streamix - Clone Netflix
+     Este arquivo HTML contém a estrutura de todas as páginas:
+     1. Página de Login (email e senha)
+     2. Página de Seleção de Perfis
+     3. Página de Cadastro de Novo Usuário
+     4. Página de Conteúdo (Filmes e Séries)
+-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Metadados da página: define charset, viewport e título -->
+    <!-- Metadados da página: charset, viewport para responsividade e link de estilos -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone - Streamix</title>
-    <!-- Link para o arquivo de estilos CSS -->
+    <title>Streamix - Netflix Clone</title>
+    <!-- Importa o arquivo CSS com todos os estilos da aplicação -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Seção da página de login inicial -->
+    <!-- PÁGINA 1: SEÇÃO DE LOGIN INICIAL
+         Exibe formulário para autenticação do usuário
+         ID: login-page - usado no JavaScript para mostrar/ocultar essa seção
+    -->
     <section id="login-page">
-        <!-- Título da página de boas-vindas -->
+        <!-- Título de boas-vindas -->
         <h1>Bem-vindo ao Streamix!</h1>
-        <!-- Formulário de login com campos de email e senha -->
+        <!-- Formulário de login com validação HTML5 -->
         <form id="login-form">
-            <!-- Campo de email -->
+            <!-- Campo de email com validação de tipo -->
             <label for="email">E-mail:</label>
             <input id="email" name="email" type="email" placeholder="seu@email.com" required>
+            
             <!-- Campo de senha -->
             <label for="password">Senha:</label>
             <input id="password" name="password" type="password" placeholder="senha" required>
-            <!-- Container para os botões de login e cadastro -->
+            
+            <!-- Container para os dois botões principais -->
             <div class="login-buttons">
+                <!-- Botão para fazer login (type=submit submete o formulário) -->
                 <button id="login-submit" type="submit">Entrar</button>
+                <!-- Botão para ir para a página de cadastro (type=button não submete) -->
                 <button id="signup-redirect" type="button">Cadastrar-se</button>
             </div>
-            <!-- Link para recuperação de senha -->
-            <span id="forgot-password" class="forgot-password-btn">Esqueceu a senha?</span>
+            
+            <!-- Link "Esqueceu a senha?" - texto clicável simples -->
+            <a id="forgot-password" href="#" class="forgot-password-btn">Esqueceu a senha?</a>
         </form>
     </section>
 
-    <!-- Seção principal da página de seleção de perfis -->
+    <!-- Conteúdo principal da página e botão de modo -->
     <main>
-        <!-- Botão para alternar entre temas claro e escuro -->
         <div class="theme-switcher">
             <button id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
         </div>
-        <!-- Logo/marca da aplicação -->
-        <div class="brand">Streamix</div>
-        <!-- Título principal da página -->
+         <div class="brand">Streamix</div>
         <h1>Quem está assistindo?</h1>
-        <!-- Subtítulo explicativo -->
         <h2>Selecione um perfil para continuar:</h2>
-        <!-- Seção que contém a lista de perfis disponíveis -->
         <section aria-label="Perfis disponíveis">
-            <!-- Navegação com lista de perfis -->
+            <!-- Lista de perfis de usuários disponíveis para seleção -->
             <nav>
                 <ul class="profiles-wrapper">
                     <li>
                         <ol class="profiles">
-                            <!-- Perfil individual: Ahri -->
                             <li class="profile">
                                 <a href="#">
                                     <figure>
-                                        <img src="assets/ahriLOL.png" alt="Imagem de uma mulher com cabelo branco e usando um capuz">
+                                        <img src="assets/ahriLOL.png" alt=" Imagem de uma mulher com cabelo branco e usando um capuz">
                                         <figcaption>Ahri</figcaption>
                                     </figure>
                                 </a>
                             </li>
-                            <!-- Perfil individual: Dex -->
                             <li class="profile">
                                 <a href="#">
                                     <figure>
@@ -257,7 +266,7 @@
 
     <!-- Página de cadastro -->
     <section id="signup-page" class="hidden">
-        <h1>Criar Conta no Streamix</h1>
+        <h1>Criar Conta no<br>Streamix</h1>
         <form id="signup-form">
             <label for="first-name">Nome</label>
             <input id="first-name" name="first-name" type="text" placeholder="Seu nome" required>
@@ -271,7 +280,7 @@
             <input id="confirm-password" name="confirm-password" type="password" placeholder="confirme sua senha" required>
             <div class="signup-buttons">
                 <button id="signup-submit" type="submit">Voltar</button>
-                <button id="back-to-profiles" class="btn-action" type="button">Cadastrar</button>
+                <button id="back-to-profiles" class="btn-action" type="button">Login</button>
             </div>
         </form>
     </section>

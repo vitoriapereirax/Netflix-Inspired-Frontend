@@ -1,14 +1,27 @@
 
-// ===== Gerenciamento de Tema =====
-// Elementos do DOM relacionados ao tema
-const body = document.body;
-const themeToggle = document.getElementById('theme-toggle');
-const themeToggleContent = document.getElementById('theme-toggle-content');
+/* ============================================
+   STREAMIX - NETFLIX CLONE
+   JavaScript Principal - Lógica da Aplicação
+   ============================================
+*/
 
-// Função para obter o tema preferido (salvo ou do sistema)
+// ===== SEÇÃO 1: GERENCIAMENTO DE TEMA (CLARO/ESCURO) =====
+// Esta seção gerencia a alternância entre modo claro e escuro
+
+/* Referências aos elementos do DOM para controle de tema */
+const body = document.body;                                      // Elemento <body>
+const themeToggle = document.getElementById('theme-toggle');     // Botão na página de perfis
+const themeToggleContent = document.getElementById('theme-toggle-content'); // Botão na página de conteúdo
+
+/* Função que retorna o tema preferido
+   1. Primeiro verifica se há tema salvo no localStorage
+   2. Se não houver, detecta a preferência do sistema operacional
+   Retorna: 'dark' ou 'light' */
 const getPreferredTheme = () => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
+    const saved = localStorage.getItem('theme'); // Tenta recuperar tema salvo
+    if (saved) return saved;                     // Se existe, retorna imediatamente
+    
+    // Detecta preferência do sistema (dark mode ativado no SO)
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
@@ -50,15 +63,31 @@ if (themeToggleContent) {
     });
 }
 
-// ===== Gerenciamento de Páginas =====
-// Elementos adicionais do DOM
-const voltarButtons = document.querySelectorAll('.btn-action');
-const profileLinks = document.querySelectorAll('.profile > a');
-const addProfileLink = document.querySelector('.profile-add > a');
+// ===== SEÇÃO 2: REFERÊNCIAS DO DOM - PÁGINAS E FORMULÁRIOS =====
+// Referências aos elementos principais da página para controle de navegação
 
-// ===== Funções de Navegação =====
+/* Elementos de cada página da aplicação */
+const loginPage = document.getElementById('login-page');        // Tela de login
+const mainPage = document.querySelector('main');               // Tela de seleção de perfis
+const contentPage = document.getElementById('content-page');    // Tela de conteúdo (filmes/séries)
+const signupPage = document.getElementById('signup-page');      // Tela de cadastro
 
-// Função para mostrar a página de cadastro
+/* Referências aos formulários */
+const loginForm = document.getElementById('login-form');        // Formulário de login
+const signupForm = document.getElementById('signup-form');      // Formulário de cadastro
+
+/* Elementos adicionais do DOM */
+const voltarButtons = document.querySelectorAll('.btn-action');  // Todos botões "Voltar" e "Gerenciar"
+const profileLinks = document.querySelectorAll('.profile > a');  // Links dos perfis existentes
+const addProfileLink = document.querySelector('.profile-add > a'); // Link do perfil "Adicionar"
+const signupRedirectBtn = document.getElementById('signup-redirect'); // Botão "Cadastrar-se" na tela de login
+
+// ===== SEÇÃO 3: FUNÇÕES DE NAVEGAÇÃO =====
+// Essas funções controlam qual página é mostrada/escondida
+
+/* Mostra a página de cadastro
+   Esconde: login, perfis e conteúdo
+   Mostra: cadastro */
 const showSignup = () => {
     loginPage.classList.add('hidden');
     mainPage.style.display = 'none';
@@ -66,7 +95,9 @@ const showSignup = () => {
     signupPage.classList.remove('hidden');
 };
 
-// Função para mostrar a página de login
+/* Mostra a página de login
+   Esconde: perfis, conteúdo e cadastro
+   Mostra: login */
 const showLogin = () => {
     loginPage.classList.remove('hidden');
     mainPage.style.display = 'none';
@@ -74,15 +105,19 @@ const showLogin = () => {
     signupPage.classList.add('hidden');
 };
 
-// Função para mostrar a página de seleção de perfis
+/* Mostra a página de seleção de perfis
+   Esconde: login, conteúdo e cadastro
+   Mostra: perfis */
 const showProfiles = () => {
     loginPage.classList.add('hidden');
-    mainPage.style.display = 'flex';
+    mainPage.style.display = 'flex';      // Usa flex display para layout dos perfis
     contentPage.classList.add('hidden');
     signupPage.classList.add('hidden');
 };
 
-// Função para mostrar a página de conteúdo (filmes/séries)
+/* Mostra a página de conteúdo (filmes e séries)
+   Esconde: login, perfis e cadastro
+   Mostra: conteúdo */
 const showContent = () => {
     loginPage.classList.add('hidden');
     mainPage.style.display = 'none';
@@ -90,20 +125,29 @@ const showContent = () => {
     signupPage.classList.add('hidden');
 };
 
-// ===== Event Listeners =====
+// ===== SEÇÃO 4: EVENT LISTENERS PRINCIPAIS =====
+// Detecta ações do usuário e executa as funções correspondentes
 
-// Evento de submissão do formulário de login
+/* Listener do formulário de login (botão "Entrar")
+   Quando o usuário submete o formulário:
+   1. Previne comportamento padrão (recarregamento)
+   2. Conduz para a página de perfis */
 loginForm.addEventListener('submit', (event) => {
     event.preventDefault();
     showProfiles();
 });
 
-// Event listener para o botão "Cadastrar-se" na tela de login
+/* Listener do botão "Cadastrar-se" na tela de login
+   Ao clicar, vai direto para a página de cadastro */
 if (signupRedirectBtn) {
     signupRedirectBtn.addEventListener('click', showSignup);
 }
 
-// Evento de submissão do formulário de cadastro
+/* Listener do formulário de cadastro (botão "Cadastrar")
+   Quando o usuário submete o formulário de cadastro:
+   1. Previne comportamento padrão
+   2. Mostra alerta de sucesso
+   3. Retorna para a página de perfis */
 signupForm.addEventListener('submit', (event) => {
     event.preventDefault();
     // Aqui você pode adicionar validação adicional se necessário
@@ -111,7 +155,10 @@ signupForm.addEventListener('submit', (event) => {
     showProfiles();
 });
 
-// Event listeners para cliques nos perfis existentes
+/* Listeners para os perfis existentes
+   Quando clica em qualquer perfil (Ahri, Dex, Lux, Thresh):
+   1. Previne comportamento padrão
+   2. Vai para a página de conteúdo (filmes/séries) */
 profileLinks.forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -119,7 +166,10 @@ profileLinks.forEach(link => {
     });
 });
 
-// Event listener para o perfil "Adicionar"
+/* Listener para o perfil "Adicionar"
+   Quando clica no perfil "Adicionar":
+   1. Previne comportamento padrão
+   2. Vai para a página de cadastro */
 if (addProfileLink) {
     addProfileLink.addEventListener('click', (event) => {
         event.preventDefault();
@@ -127,23 +177,31 @@ if (addProfileLink) {
     });
 }
 
-// Event listener para o botão "Voltar" na página de cadastro
+/* Listener do botão "Voltar" na página de cadastro
+   Retorna para a página de perfis sem completar o cadastro */
 const backToProfilesBtn = document.getElementById('back-to-profiles');
 if (backToProfilesBtn) {
     backToProfilesBtn.addEventListener('click', showProfiles);
 }
 
-// Event listeners para botões "Voltar" (geralmente levam para login)
+/* Listeners para todos botões "Voltar" na página de perfis
+   Retorna para a página de login */
 voltarButtons.forEach(btn => {
     btn.addEventListener('click', showLogin);
 });
 
-// ===== Gerenciamento de Abas de Conteúdo =====
-// Elementos das abas de navegação e seções de conteúdo
-const navTabs = document.querySelectorAll('.nav-tab');
-const contentSections = document.querySelectorAll('.content-section');
+// ===== SEÇÃO 5: GERENCIAMENTO DE ABAS DE CONTEÚDO =====
+// Controla a alternância entre diferentes categorias de filmes/séries
 
-// Event listeners para as abas de navegação
+/* Referências às abas (botões de navegação) e seções de conteúdo */
+const navTabs = document.querySelectorAll('.nav-tab');              // Todos os botões (Início, Filmes, etc)
+const contentSections = document.querySelectorAll('.content-section'); // Todas as seções de conteúdo
+
+/* Event listeners para as abas de navegação
+   Quando clica em uma aba (Início, Filmes, Séries, etc):
+   1. Remove classe 'active' de todas as outras abas e seções
+   2. Adiciona classe 'active' à aba clicada
+   3. Mostra a seção correspondente */
 navTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         // Remove classe 'active' de todas as abas
@@ -154,7 +212,8 @@ navTabs.forEach(tab => {
         // Adiciona classe 'active' à aba clicada
         tab.classList.add('active');
         
-        // Adiciona classe 'active' à seção correspondente
+        /* Procura pela seção correspondente e a ativa
+           data-category contém o ID da seção (ex: "filmes", "series") */
         const category = tab.getAttribute('data-category');
         const targetSection = document.getElementById(category);
         if (targetSection) {
@@ -163,38 +222,48 @@ navTabs.forEach(tab => {
     });
 });
 
-// ===== Menu de Perfil =====
-// Elementos do menu dropdown do perfil
-const profileMenu = document.getElementById('profile-menu');
-const profileDropdown = document.getElementById('profile-dropdown');
-const logoutBtn = document.getElementById('logout-btn');
-const backProfilesBtn = document.getElementById('back-profiles-btn');
+// ===== SEÇÃO 6: MENU DE PERFIL (DROPDOWN) =====
+// Gerencia a abertura/fechamento do menu de sair na navbar
 
-// Event listener para abrir/fechar o menu de perfil
+/* Referências aos elementos do menu dropdown */
+const profileMenu = document.getElementById('profile-menu');           // Botão 👤 na navbar
+const profileDropdown = document.getElementById('profile-dropdown');   // Menu dropdown
+const logoutBtn = document.getElementById('logout-btn');              // Botão "Sair"
+const backProfilesBtn = document.getElementById('back-profiles-btn'); // Botão "Voltar para Perfis"
+
+/* Event listener para abrir/fechar o menu dropdown
+   Clica no ícone 👤 para alternar visibilidade do menu */
 if (profileMenu) {
     profileMenu.addEventListener('click', () => {
-        profileDropdown.classList.toggle('hidden');
+        profileDropdown.classList.toggle('hidden'); // Alterna classe 'hidden'
     });
 }
 
-// Event listener para fechar o menu ao clicar fora
+/* Event listener para fechar o menu ao clicar fora dele
+   Detecta cliques em toda a página:
+   - Se clicou fora do menu, fecha-o
+   - Se clicou no menu ou botão, mantém aberto */
 document.addEventListener('click', (event) => {
     if (profileDropdown && !profileDropdown.classList.contains('hidden')) {
+        // Verifica se o clique foi fora do menu E fora do botão
         if (!event.target.closest('.profile-menu') && !event.target.closest('.profile-dropdown')) {
-            profileDropdown.classList.add('hidden');
+            profileDropdown.classList.add('hidden'); // Fecha o menu
         }
     }
 });
 
-// Event listener para o botão "Sair"
+/* Event listener para o botão "Sair"
+   Volta para a página de login */
 if (logoutBtn) {
     logoutBtn.addEventListener('click', showLogin);
 }
 
-// Event listener para o botão "Voltar para Perfis"
+/* Event listener para o botão "Voltar para Perfis"
+   1. Fecha o menu dropdown
+   2. Volta para a página de seleção de perfis */
 if (backProfilesBtn) {
     backProfilesBtn.addEventListener('click', () => {
-        profileDropdown.classList.add('hidden');
-        showProfiles();
+        profileDropdown.classList.add('hidden');  // Fecha o menu
+        showProfiles();                            // Vai para perfis
     });
 }     

@@ -142,7 +142,9 @@ body.light-mode h1 {
     color: #740606;
 }
 
-/* Estilo da página de login inicial */
+/* ===== SEÇÃO LOGIN =====
+   Estilos da tela de login inicial
+   Configura o painel, o formulário e seus controles */
 #login-page {
     display: flex;
     flex-direction: column;
@@ -246,7 +248,9 @@ body.light-mode h1 {
     display: none;
 }
 
-/* Estilo da página de cadastro */
+/* ===== SEÇÃO CADASTRO =====
+   Estilos da página de criação de conta
+   Controla o layout do formulário de registro */
 #signup-page {
     display: flex;
     flex-direction: column;
@@ -393,7 +397,9 @@ h2 {
 }
 
 
-/* Estiliza a seção que contém os perfis de usuário */
+/* ===== SEÇÃO PERFIS =====
+   Estiliza a área de seleção de perfis
+   Centraliza a grade de perfis e controla espaçamento */
 section[aria-label="Perfis disponíveis"] {
     /* usa 100% do contêiner pai */
     width: 100%;
@@ -461,9 +467,10 @@ body:not(.light-mode) .btn-action {
 
 /* Estiliza cada item de perfil individual */
 .profile {
-    display: block;
+    display: block; /* Faz cada perfil funcionar como bloco clicável */
 }
 
+/* Estiliza especificamente o perfil de adicionar novo perfil */
 .profile-add a {
     display: flex;
     align-items: center;
@@ -476,6 +483,7 @@ body:not(.light-mode) .btn-action {
     flex-direction: column;
 }
 
+/* Estiliza o botão de adicionar perfil com borda tracejada */
 .add-circle {
     width: 120px;
     height: 120px;
@@ -489,6 +497,7 @@ body:not(.light-mode) .btn-action {
     margin-bottom: 0.75rem;
 }
 
+/* Estiliza o texto do perfil de adicionar */
 .profile-add figcaption {
     color: var(--text-color);
     font-size: 1.1rem;
@@ -528,19 +537,19 @@ figure {
 
 /* Estiliza as imagens de perfil para tamanho igual e cantos arredondados */
 img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
+    width: 120px; /* largura fixa das fotos de perfil */
+    height: 120px; /* altura fixa das fotos de perfil */
+    object-fit: cover; /* mantém proporção e recorta a imagem se necessário */
+    border-radius: 8px; /* cantos arredondados nas imagens */
     margin-bottom: 0.75rem;
-    background: #222;
+    background: #222; /* fallback escuro caso a imagem não carregue */
     display: block;
     border: 1px transparent;
 }
 
 /* Efeito ao passar o mouse sobre a imagem de perfil */
 img:hover {
-    box-shadow: 0 0 10px rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(255, 255, 255); /* destaque brilhante ao hover */
 }
 
 
@@ -558,7 +567,9 @@ figcaption {
     letter-spacing: 0.5px;
 }
 
-/* Quebra de layout para tablets e dispositivos médios */
+/* ===== RESPONSIVIDADE - TABLETS =====
+   Ajustes para telas médias e tablets
+   Adaptam o layout para menos espaço horizontal */
 @media (max-width: 1024px) {
     body {
         padding: 0;

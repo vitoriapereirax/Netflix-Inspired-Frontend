@@ -6,98 +6,98 @@
      4. Página de Conteúdo (Filmes e Séries)
 -->
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<!DOCTYPE html> <!-- Declara o documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
+<head> <!-- Início do cabeçalho com metadados e links de estilo -->
     <!-- Metadados da página: charset, viewport para responsividade e link de estilos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Streamix - Netflix Clone</title>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta layout para dispositivos móveis -->
+    <title>Streamix - Netflix Clone</title> <!-- Título que aparece na aba do navegador -->
     <!-- Importa o arquivo CSS com todos os estilos da aplicação -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css"> <!-- Conecta o CSS externo -->
+</head> <!-- Fim do cabeçalho -->
+<body> <!-- Início do corpo da página -->
     <!-- PÁGINA 1: SEÇÃO DE LOGIN INICIAL
          Exibe formulário para autenticação do usuário
          ID: login-page - usado no JavaScript para mostrar/ocultar essa seção
     -->
-    <section id="login-page">
+    <section id="login-page"> <!-- Container da tela de login -->
         <!-- Título de boas-vindas -->
-        <h1>Bem-vindo ao Streamix!</h1>
+        <h1>Bem-vindo ao Streamix!</h1> <!-- Texto principal da tela de login -->
         <!-- Formulário de login com validação HTML5 -->
-        <form id="login-form">
+        <form id="login-form"> <!-- Formulário de login com ID usado no JS -->
             <!-- Campo de email com validação de tipo -->
-            <label for="email">E-mail:</label>
-            <input id="email" name="email" type="email" placeholder="seu@email.com" required>
+            <label for="email">E-mail:</label> <!-- Rótulo vinculado ao campo de email -->
+            <input id="email" name="email" type="email" placeholder="seu@email.com" required> <!-- Campo de email obrigatório -->
             
             <!-- Campo de senha -->
-            <label for="password">Senha:</label>
-            <input id="password" name="password" type="password" placeholder="senha" required>
+            <label for="password">Senha:</label> <!-- Rótulo vinculado ao campo de senha -->
+            <input id="password" name="password" type="password" placeholder="senha" required> <!-- Campo de senha obrigatório -->
             
             <!-- Container para os dois botões principais -->
-            <div class="login-buttons">
+            <div class="login-buttons"> <!-- Agrupa os botões de login e cadastro -->
                 <!-- Botão para fazer login (type=submit submete o formulário) -->
-                <button id="login-submit" type="submit">Entrar</button>
+                <button id="login-submit" type="submit">Entrar</button> <!-- Envia o formulário de login -->
                 <!-- Botão para ir para a página de cadastro (type=button não submete) -->
-                <button id="signup-redirect" type="button">Cadastrar-se</button>
-            </div>
+                <button id="signup-redirect" type="button">Cadastrar-se</button> <!-- Leva o usuário para cadastro -->
+            </div> <!-- Fim do container de botões -->
             
             <!-- Link "Esqueceu a senha?" - texto clicável simples -->
-            <a id="forgot-password" href="#" class="forgot-password-btn">Esqueceu a senha?</a>
-        </form>
-    </section>
+            <a id="forgot-password" href="#" class="forgot-password-btn">Esqueceu a senha?</a> <!-- Link de recuperação de senha -->
+        </form> <!-- Fim do formulário de login -->
+    </section> <!-- Fim da seção de login -->
 
     <!-- Conteúdo principal da página e botão de modo -->
-    <main>
-        <div class="theme-switcher">
-            <button id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button>
+    <main> <!-- Tela de seleção de perfis -->
+        <div class="theme-switcher"> <!-- Switcher de tema no topo da página -->
+            <button id="theme-toggle" type="button" aria-label="Alternar tema">🌙</button> <!-- Botão que alterna entre claro e escuro -->
         </div>
-         <div class="brand">Streamix</div>
-        <h1>Quem está assistindo?</h1>
-        <h2>Selecione um perfil para continuar:</h2>
-        <section aria-label="Perfis disponíveis">
+         <div class="brand">Streamix</div> <!-- Logo fixa no topo da tela principal -->
+        <h1>Quem está assistindo?</h1> <!-- Pergunta ao usuário para escolher perfil -->
+        <h2>Selecione um perfil para continuar:</h2> <!-- Instrução para escolher um perfil -->
+        <section aria-label="Perfis disponíveis"> <!-- Lista de perfis visível para o usuário -->
             <!-- Lista de perfis de usuários disponíveis para seleção -->
-            <nav>
-                <ul class="profiles-wrapper">
-                    <li>
-                        <ol class="profiles">
-                            <li class="profile">
-                                <a href="#">
-                                    <figure>
-                                        <img src="assets/ahriLOL.png" alt=" Imagem de uma mulher com cabelo branco e usando um capuz">
-                                        <figcaption>Ahri</figcaption>
+            <nav> <!-- Área de navegação de perfis -->
+                <ul class="profiles-wrapper"> <!-- Envolve a lista principal de perfis -->
+                    <li> <!-- Item de lista que contém a lista de perfis -->
+                        <ol class="profiles"> <!-- Lista ordenada de perfis com layout em grade -->
+                            <li class="profile"> <!-- Perfil 1 -->
+                                <a href="#"> <!-- Link clicável do perfil -->
+                                    <figure> <!-- Estrutura de imagem e legenda do perfil -->
+                                        <img src="assets/ahriLOL.png" alt=" Imagem de uma mulher com cabelo branco e usando um capuz"> <!-- Foto do perfil -->
+                                        <figcaption>Ahri</figcaption> <!-- Nome do perfil -->
                                     </figure>
                                 </a>
                             </li>
-                            <li class="profile">
+                            <li class="profile"> <!-- Perfil 2 -->
                                 <a href="#">
                                     <figure>
-                                        <img src="assets/Dex.jpg" alt="imagem de um homem com cabelo castanho e usando uma camisa social">
-                                        <figcaption>Dex</figcaption>
+                                        <img src="assets/Dex.jpg" alt="imagem de um homem com cabelo castanho e usando uma camisa social"> <!-- Foto do perfil -->
+                                        <figcaption>Dex</figcaption> <!-- Nome do perfil -->
                                     </figure>
                                 </a>
                             </li>
-                            <li class="profile">
+                            <li class="profile"> <!-- Perfil 3 -->
                                 <a href="#">
                                     <figure>
-                                        <img src="assets/LuxLOL.png" alt="imagem de uma mulher com cabelo loiro e usando um vestido azul">
-                                        <figcaption>Lux</figcaption>
+                                        <img src="assets/LuxLOL.png" alt="imagem de uma mulher com cabelo loiro e usando um vestido azul"> <!-- Foto do perfil -->
+                                        <figcaption>Lux</figcaption> <!-- Nome do perfil -->
                                     </figure>
                                 </a>
                             </li>
-                            <li class="profile">
+                            <li class="profile"> <!-- Perfil 4 -->
                                 <a href="#">
                                     <figure>
-                                        <img src="assets/thresh.png" alt="imagem de um homem com cabelo verde e usando uma capa preta">
-                                        <figcaption>Thresh</figcaption>
+                                        <img src="assets/thresh.png" alt="imagem de um homem com cabelo verde e usando uma capa preta"> <!-- Foto do perfil -->
+                                        <figcaption>Thresh</figcaption> <!-- Nome do perfil -->
                                     </figure>
                                 </a>
                             </li>
-                            <li class="profile profile-add">
+                            <li class="profile profile-add"> <!-- Item para adicionar novo perfil -->
                                 <a href="#">
                                     <figure>
-                                        <div class="add-circle">+</div>
-                                        <figcaption>Adicionar</figcaption>
+                                        <div class="add-circle">+</div> <!-- Botão visual para adicionar perfil -->
+                                        <figcaption>Adicionar</figcaption> <!-- Texto do botão de adicionar -->
                                     </figure>
                                 </a>
                             </li>
@@ -106,185 +106,188 @@
                 </ul>
             </nav>
         </section>
-        <div class="perfil-actions">
-            <button class="btn-action">Voltar</button>
-            <button class="btn-action">Gerenciar Perfis</button>
+        <div class="perfil-actions"> <!-- Botões de ação da tela de perfis -->
+            <button class="btn-action">Voltar</button> <!-- Botão para voltar à tela anterior -->
+            <button class="btn-action">Gerenciar Perfis</button> <!-- Botão para gerenciar perfis -->
         </div>
-        </main>
+        </main> <!-- Fim da tela de seleção de perfis -->
 
     <!-- Página de conteúdo (Filmes e Séries) -->
-    <section id="content-page" class="hidden">
-        <div class="brand-content">Streamix</div>
+    <!-- Esta seção é exibida depois que o usuário seleciona um perfil -->
+    <section id="content-page" class="hidden"> <!-- Seção de conteúdo inicialmente oculta -->
+        <div class="brand-content">Streamix</div> <!-- Logo fixa da tela de conteúdo -->
         
         <!-- Navbar com categorias -->
-        <nav class="content-navbar">
-            <div class="navbar-container">
-                <ul class="nav-tabs">
-                    <li><button class="nav-tab active" data-category="inicio">Início</button></li>
-                    <li><button class="nav-tab" data-category="filmes">Filmes</button></li>
-                    <li><button class="nav-tab" data-category="series">Séries</button></li>
-                    <li><button class="nav-tab" data-category="bombando">Bombando</button></li>
-                    <li><button class="nav-tab" data-category="minha-lista">Minha Lista</button></li>
+        <nav class="content-navbar"> <!-- Barra de navegação das categorias -->
+            <div class="navbar-container"> <!-- Agrupa abas, tema e perfil -->
+                <ul class="nav-tabs"> <!-- Lista de abas de navegação -->
+                    <li><button class="nav-tab active" data-category="inicio">Início</button></li> <!-- Aba inicial ativa -->
+                    <li><button class="nav-tab" data-category="filmes">Filmes</button></li> <!-- Aba de filmes -->
+                    <li><button class="nav-tab" data-category="series">Séries</button></li> <!-- Aba de séries -->
+                    <li><button class="nav-tab" data-category="bombando">Bombando</button></li> <!-- Aba de conteúdo em alta -->
+                    <li><button class="nav-tab" data-category="minha-lista">Minha Lista</button></li> <!-- Aba de favoritos -->
                 </ul>
-                <button id="theme-toggle-content" type="button" aria-label="Alternar tema">🌙</button>
-                <button id="profile-menu" class="profile-menu">👤</button>
-                <div id="profile-dropdown" class="profile-dropdown hidden">
-                    <button id="logout-btn">Sair</button>
-                    <button id="back-profiles-btn">Voltar para Perfis</button>
+                <button id="theme-toggle-content" type="button" aria-label="Alternar tema">🌙</button> <!-- Alterna tema na página de conteúdo -->
+                <button id="profile-menu" class="profile-menu">👤</button> <!-- Botão que abre o menu de perfil -->
+                <div id="profile-dropdown" class="profile-dropdown hidden"> <!-- Dropdown de opções do perfil -->
+                    <button id="logout-btn">Sair</button> <!-- Botão para voltar ao login -->
+                    <button id="back-profiles-btn">Voltar para Perfis</button> <!-- Botão para retornar à seleção de perfis -->
                 </div>
             </div>
-        </nav>
+        </nav> <!-- Fim da navbar de conteúdo -->
 
         <!-- Conteúdo das categorias -->
-        <main class="content-main">
+        <main class="content-main"> <!-- Área principal do conteúdo -->
             <!-- Início -->
-            <div id="inicio" class="content-section active">
-                <h2>Populares na Streamix</h2>
-                <div class="movies-grid">
-                    <div class="movie-card">
-                        <div class="movie-poster">🎬</div>
-                        <p class="movie-title">Filme 1</p>
+            <div id="inicio" class="content-section active"> <!-- Seção de conteúdo inicial visível -->
+                <h2>Populares na Streamix</h2> <!-- Título da seção de destaque -->
+                <div class="movies-grid"> <!-- Grid de cards de filmes -->
+                    <div class="movie-card"> <!-- Card 1 -->
+                        <div class="movie-poster">🎬</div> <!-- Poster do filme -->
+                        <p class="movie-title">Filme 1</p> <!-- Nome do filme -->
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card 2 -->
                         <div class="movie-poster">🎬</div>
                         <p class="movie-title">Filme 2</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card 3 -->
                         <div class="movie-poster">🎬</div>
                         <p class="movie-title">Filme 3</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card 4 -->
                         <div class="movie-poster">🎬</div>
                         <p class="movie-title">Filme 4</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card 5 -->
                         <div class="movie-poster">🎬</div>
                         <p class="movie-title">Filme 5</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card 6 -->
                         <div class="movie-poster">🎬</div>
                         <p class="movie-title">Filme 6</p>
                     </div>
-                </div>
-            </div>
+                </div> <!-- Fim do grid de filmes populares -->
+            </div> <!-- Fim da seção Início -->
 
             <!-- Filmes -->
-            <div id="filmes" class="content-section">
-                <h2>Filmes</h2>
-                <div class="movies-grid">
-                    <div class="movie-card">
-                        <div class="movie-poster">🎥</div>
-                        <p class="movie-title">Ação Filme 1</p>
+            <div id="filmes" class="content-section"> <!-- Seção de filmes oculta por padrão -->
+                <h2>Filmes</h2> <!-- Título da seção de filmes -->
+                <div class="movies-grid"> <!-- Grid de cards de filmes -->
+                    <div class="movie-card"> <!-- Card de filme 1 -->
+                        <div class="movie-poster">🎥</div> <!-- Pôster do filme -->
+                        <p class="movie-title">Ação Filme 1</p> <!-- Título do filme -->
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de filme 2 -->
                         <div class="movie-poster">🎥</div>
                         <p class="movie-title">Ação Filme 2</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de filme 3 -->
                         <div class="movie-poster">🎥</div>
                         <p class="movie-title">Ação Filme 3</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de filme 4 -->
                         <div class="movie-poster">🎥</div>
                         <p class="movie-title">Ação Filme 4</p>
                     </div>
-                </div>
-            </div>
+                </div> <!-- Fim do grid de filmes -->
+            </div> <!-- Fim da seção Filmes -->
 
             <!-- Séries -->
-            <div id="series" class="content-section">
-                <h2>Séries</h2>
-                <div class="movies-grid">
-                    <div class="movie-card">
-                        <div class="movie-poster">📺</div>
-                        <p class="movie-title">Série 1</p>
+            <div id="series" class="content-section"> <!-- Seção de séries oculta por padrão -->
+                <h2>Séries</h2> <!-- Título da seção de séries -->
+                <div class="movies-grid"> <!-- Grid de cards de séries -->
+                    <div class="movie-card"> <!-- Card de série 1 -->
+                        <div class="movie-poster">📺</div> <!-- Pôster da série -->
+                        <p class="movie-title">Série 1</p> <!-- Nome da série -->
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de série 2 -->
                         <div class="movie-poster">📺</div>
                         <p class="movie-title">Série 2</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de série 3 -->
                         <div class="movie-poster">📺</div>
                         <p class="movie-title">Série 3</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card de série 4 -->
                         <div class="movie-poster">📺</div>
                         <p class="movie-title">Série 4</p>
                     </div>
-                </div>
-            </div>
+                </div> <!-- Fim do grid de séries -->
+            </div> <!-- Fim da seção Séries -->
 
             <!-- Bombando -->
-            <div id="bombando" class="content-section">
-                <h2>Bombando Agora</h2>
-                <div class="movies-grid">
-                    <div class="movie-card">
-                        <div class="movie-poster">🔥</div>
-                        <p class="movie-title">Trending 1</p>
+            <div id="bombando" class="content-section"> <!-- Seção de conteúdo em alta -->
+                <h2>Bombando Agora</h2> <!-- Título da seção de conteúdos populares -->
+                <div class="movies-grid"> <!-- Grid de cards em alta -->
+                    <div class="movie-card"> <!-- Card trending 1 -->
+                        <div class="movie-poster">🔥</div> <!-- Ícone de trending -->
+                        <p class="movie-title">Trending 1</p> <!-- Título do card -->
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card trending 2 -->
                         <div class="movie-poster">🔥</div>
                         <p class="movie-title">Trending 2</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card trending 3 -->
                         <div class="movie-poster">🔥</div>
                         <p class="movie-title">Trending 3</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card trending 4 -->
                         <div class="movie-poster">🔥</div>
                         <p class="movie-title">Trending 4</p>
                     </div>
-                </div>
-            </div>
+                </div> <!-- Fim do grid Bombando -->
+            </div> <!-- Fim da seção Bombando -->
 
             <!-- Minha Lista -->
-            <div id="minha-lista" class="content-section">
-                <h2>Minha Lista</h2>
-                <div class="movies-grid">
-                    <div class="movie-card">
-                        <div class="movie-poster">⭐</div>
-                        <p class="movie-title">Favorito 1</p>
+            <div id="minha-lista" class="content-section"> <!-- Seção de lista pessoal -->
+                <h2>Minha Lista</h2> <!-- Título da seção de lista de favoritos -->
+                <div class="movies-grid"> <!-- Grid de cards favoritos -->
+                    <div class="movie-card"> <!-- Card favorito 1 -->
+                        <div class="movie-poster">⭐</div> <!-- Ícone de favorito -->
+                        <p class="movie-title">Favorito 1</p> <!-- Nome do item favorito -->
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card favorito 2 -->
                         <div class="movie-poster">⭐</div>
                         <p class="movie-title">Favorito 2</p>
                     </div>
-                    <div class="movie-card">
+                    <div class="movie-card"> <!-- Card favorito 3 -->
                         <div class="movie-poster">⭐</div>
                         <p class="movie-title">Favorito 3</p>
                     </div>
-                </div>
-            </div>
-        </main>
+                </div> <!-- Fim do grid Minha Lista -->
+            </div> <!-- Fim da seção Minha Lista -->
+        </main> <!-- Fim da área de conteúdo principal -->
 
         <!-- Menu de perfil -->
-        <div id="profile-dropdown" class="profile-dropdown hidden">
-            <button id="logout-btn">Sair</button>
-            <button id="back-profiles-btn">Voltar para Perfis</button>
-        </div>
-    </section>
+        <div id="profile-dropdown" class="profile-dropdown hidden"> <!-- Dropdown oculto por padrão -->
+            <button id="logout-btn">Sair</button> <!-- Botão que faz logout / volta para o login -->
+            <button id="back-profiles-btn">Voltar para Perfis</button> <!-- Botão para retornar à seleção de perfis -->
+        </div> <!-- Fim do dropdown de perfil -->
+    </section> <!-- Fim da página de conteúdo -->
 
     <!-- Página de cadastro -->
-    <section id="signup-page" class="hidden">
-        <h1>Criar Conta no<br>Streamix</h1>
-        <form id="signup-form">
-            <label for="first-name">Nome</label>
-            <input id="first-name" name="first-name" type="text" placeholder="Seu nome" required>
-            <label for="last-name">Sobrenome</label>
-            <input id="last-name" name="last-name" type="text" placeholder="Seu sobrenome" required>
-            <label for="signup-email">E-mail</label>
-            <input id="signup-email" name="signup-email" type="email" placeholder="seu@email.com" required>
-            <label for="signup-password">Senha</label>
-            <input id="signup-password" name="signup-password" type="password" placeholder="senha" required>
-            <label for="confirm-password">Confirmar Senha</label>
-            <input id="confirm-password" name="confirm-password" type="password" placeholder="confirme sua senha" required>
-            <div class="signup-buttons">
-                <button id="signup-submit" type="submit">Voltar</button>
-                <button id="back-to-profiles" class="btn-action" type="button">Login</button>
-            </div>
-        </form>
-    </section>
+    <!-- Formulário de criação de conta e campos para dados do usuário -->
+    <section id="signup-page" class="hidden"> <!-- Seção de cadastro oculta por padrão -->
+        <h1>Criar Conta no<br>Streamix</h1> <!-- Título do formulário de cadastro com quebra de linha -->
+        <form id="signup-form"> <!-- Formulário para criar uma nova conta -->
+            <label for="first-name">Nome</label> <!-- Rótulo para o campo de nome -->
+            <input id="first-name" name="first-name" type="text" placeholder="Seu nome" required> <!-- Campo obrigatório para o primeiro nome -->
+            <label for="last-name">Sobrenome</label> <!-- Rótulo para o campo de sobrenome -->
+            <input id="last-name" name="last-name" type="text" placeholder="Seu sobrenome" required> <!-- Campo obrigatório para o sobrenome -->
+            <label for="signup-email">E-mail</label> <!-- Rótulo para o campo de e-mail -->
+            <input id="signup-email" name="signup-email" type="email" placeholder="seu@email.com" required> <!-- Campo obrigatório de e-mail com validação -->
+            <label for="signup-password">Senha</label> <!-- Rótulo para o campo de senha -->
+            <input id="signup-password" name="signup-password" type="password" placeholder="senha" required> <!-- Campo obrigatório de senha -->
+            <label for="confirm-password">Confirmar Senha</label> <!-- Rótulo para confirmar a senha -->
+            <input id="confirm-password" name="confirm-password" type="password" placeholder="confirme sua senha" required> <!-- Campo obrigatório para confirmar a senha -->
+            <!-- Botões de ação do formulário de cadastro -->
+            <div class="signup-buttons"> <!-- Container que centraliza os botões -->
+                <button id="signup-submit" type="submit">Voltar</button> <!-- Botão que atualmente envia o formulário ou pode ser usado para voltar -->
+                <button id="back-to-profiles" class="btn-action" type="button">Login</button> <!-- Botão que retorna para a tela de perfis/login -->
+            </div> <!-- Fim do container de botões do cadastro -->
+        </form> <!-- Fim do formulário de cadastro -->
+    </section> <!-- Fim da página de cadastro -->
 
- <script src="script.js"></script>
-</body>
-</html>
+ <script src="script.js"></script> <!-- Importa o arquivo JavaScript da aplicação -->
+</body> <!-- Fim do corpo da página -->
+</html> <!-- Fim do documento HTML -->

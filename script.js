@@ -18,17 +18,17 @@ const themeToggleContent = document.getElementById('theme-toggle-content'); // B
    2. Se não houver, detecta a preferência do sistema operacional
    Retorna: 'dark' ou 'light' */
 const getPreferredTheme = () => {
-    const saved = localStorage.getItem('theme'); // Tenta recuperar tema salvo
-    if (saved) return saved;                     // Se existe, retorna imediatamente
+    const saved = localStorage.getItem('theme'); // Tenta recuperar tema salvo no navegador
+    if (saved) return saved;                     // Se existe, usa essa preferência
     
-    // Detecta preferência do sistema (dark mode ativado no SO)
+    // Se não houver preferência salva, detecta o tema do sistema operacional
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 // Função para aplicar o tema à página
 const applyTheme = theme => {
-    const isLight = theme === 'light';
-    body.classList.toggle('light-mode', isLight);
+    const isLight = theme === 'light'; // Verifica se o tema atual é claro
+    body.classList.toggle('light-mode', isLight); // Adiciona ou remove a classe light-mode
     
     // Atualiza o ícone do botão de tema na página de perfis
     if (themeToggle) {
@@ -81,6 +81,7 @@ const voltarButtons = document.querySelectorAll('.btn-action');  // Todos botõe
 const profileLinks = document.querySelectorAll('.profile > a');  // Links dos perfis existentes
 const addProfileLink = document.querySelector('.profile-add > a'); // Link do perfil "Adicionar"
 const signupRedirectBtn = document.getElementById('signup-redirect'); // Botão "Cadastrar-se" na tela de login
+const backToProfilesBtn = document.getElementById('back-to-profiles'); // Botão de retorno da tela de cadastro
 
 // ===== SEÇÃO 3: FUNÇÕES DE NAVEGAÇÃO =====
 // Essas funções controlam qual página é mostrada/escondida
@@ -179,15 +180,18 @@ if (addProfileLink) {
 
 /* Listener do botão "Voltar" na página de cadastro
    Retorna para a página de perfis sem completar o cadastro */
-const backToProfilesBtn = document.getElementById('back-to-profiles');
 if (backToProfilesBtn) {
-    backToProfilesBtn.addEventListener('click', showProfiles);
+    backToProfilesBtn.addEventListener('click', () => {
+        showProfiles(); // Exibe a lista de perfis
+    });
 }
 
 /* Listeners para todos botões "Voltar" na página de perfis
    Retorna para a página de login */
 voltarButtons.forEach(btn => {
-    btn.addEventListener('click', showLogin);
+    btn.addEventListener('click', () => {
+        showLogin(); // Exibe a tela de login principal
+    });
 });
 
 // ===== SEÇÃO 5: GERENCIAMENTO DE ABAS DE CONTEÚDO =====

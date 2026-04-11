@@ -12,7 +12,7 @@
     <!-- Metadados da página: charset, viewport para responsividade e link de estilos -->
     <meta charset="UTF-8"> <!-- Define a codificação de caracteres para UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta layout para dispositivos móveis -->
-    <title>Streamix - Netflix Clone</title> <!-- Título que aparece na aba do navegador -->
+    <title>Streamix </title> <!-- Título que aparece na aba do navegador -->
     <!-- Importa o arquivo CSS com todos os estilos da aplicação -->
     <link rel="stylesheet" href="style.css"> <!-- Conecta o CSS externo -->
 </head> <!-- Fim do cabeçalho -->
@@ -20,7 +20,14 @@
     <!-- PÁGINA 1: SEÇÃO DE LOGIN INICIAL
          Exibe formulário para autenticação do usuário
          ID: login-page - usado no JavaScript para mostrar/ocultar essa seção
-    -->
+    --> 
+       <div class="video-container" id="video-container">
+    <video id="tudum-video" muted autoplay playsinline>
+        <source src="assets/Netflix-Intro-1080p-Highest-Quality.mp4" type="video/mp4">
+    </video>
+</div>
+
+         </div>
     <section id="login-page"> <!-- Container da tela de login -->
         <!-- Título de boas-vindas -->
         <h1>Bem-vindo ao Streamix!</h1> <!-- Texto principal da tela de login -->

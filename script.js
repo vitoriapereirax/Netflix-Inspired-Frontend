@@ -63,6 +63,45 @@ if (themeToggleContent) {
     });
 }
 
+//INTRO TUDUM
+
+const video = document.getElementById
+('tudum-video'); // Referência ao elemento de vídeo
+const container = document.getElementById ('video-container'); // Referência ao container do vídeo
+
+// 🔊 ativa som no primeiro clique (regra dos navegadores)
+document.addEventListener('click', () => {
+    video.muted = false;
+    video.onplay(); // Tenta iniciar o vídeo para garantir que o som seja ativado
+}, { once: true });
+
+
+// 🎬 quando o vídeo terminar
+video.addEventListener('ended', () => {
+    // fade out
+    container.classList.add('fade-out');
+
+     // depois remove e mostra login
+    setTimeout(() => {
+        container.style.display = 'none';
+
+        // mostra login
+        document.getElementById('login-page').classList.remove('hidden');
+    }, 1000);
+
+//clique no container -> reproduz o video 
+//container.addEventListener('click', () => {
+    /*video.muted = false;
+
+    video.play()
+        .then(() => {
+            console.log('Vídeo começou a reproduzir');
+        })
+        .catch(error => {
+            console.log('Erro ao reproduzir o vídeo:', error);
+        });
+});*/
+
 // ===== SEÇÃO 2: REFERÊNCIAS DO DOM - PÁGINAS E FORMULÁRIOS =====
 // Referências aos elementos principais da página para controle de navegação
 

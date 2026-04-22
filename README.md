@@ -14,7 +14,6 @@ Estilização moderna com foco em UI/UX
 HTML5
 CSS3
 JavaScript
-(opcional: APIs ou IA, se você tiver usado)
-🎯 Objetivo
 
+🎯 Objetivo
 Praticar habilidades de desenvolvimento front-end, além de explorar criatividade no design e aplicação de conceitos modernos de interface.
